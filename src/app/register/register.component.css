@@ -1,0 +1,42 @@
+#modal-content-wrapper {
+  width: 980px;
+  height: 620px;
+  display: grid;
+  color: black;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.register-page {
+  display: flex;
+}
+#img-container {
+  height: 620px;
+  width: 490px;
+
+  background: linear-gradient(
+      314.03deg,
+      rgba(191, 63, 98, 0.66) 0%,
+      rgba(222, 115, 97, 0.94) 23.3%,
+      rgba(252, 165, 97, 0.91) 59.69%,
+      rgba(255, 187, 81, 0.5) 100%
+    ),
+    url("src/assets/authentication/popup.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.img-text{
+  color: white;
+  margin-left: 50px;
+  margin-top: 155px;
+}
+#lorem-text{
+  font-family: "Bebas Neue";
+  font-size: 50px;
+}
+#lorem-detail{
+  font-size: 34px;
+  padding-top: 70px;
+  width: 78%;
+  line-height: 44px;
+height: fit-content;}

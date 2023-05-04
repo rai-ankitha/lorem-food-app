@@ -1,0 +1,21 @@
+<div *ngIf="isVerify">
+    <app-new-password-input></app-new-password-input>
+    </div>
+    <div *ngIf="!isVerify">
+        <div class="verification-container">
+            <img class="img-container" src="./assets/authentication/verification.png" alt="verification">
+            <div class="form-heading">Verification</div>
+            <div class="form-description">We just sent you the OTP via SMS
+                <div id="second-line">your email address/mobile no.</div>
+                <div id="third-line">You should get it soon!</div>
+            </div>
+            <div><form>
+                <label id="form-label">Enter OTP</label>
+                <div class="form-group"><input class="form-control" type="text" inputmode="numeric" formControlName="otpNumber"></div>
+            
+                <div class="form-group"><button (click)="verifyFunc()" class="btn-verify" type="submit">verify</button></div>
+                
+            </form></div>
+            
+        </div>
+    </div>

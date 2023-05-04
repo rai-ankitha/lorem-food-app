@@ -1,0 +1,34 @@
+<div *ngIf="isCreateBool">
+    <app-email-verification>/</app-email-verification>
+</div>
+<div *ngIf="!isCreateBool">
+    <div > <mat-icon class="close-button">close</mat-icon></div>
+    <div class="form-container">
+        <div class="form-heading">Create your account</div>
+        <div class="form-description">Share your email address to send you the 
+            <div id="second-line">OTP to get yourself registered!</div>
+        </div>
+        <form [formGroup]="emailForm">
+            <label id="form-label">Email</label>
+            <div class="form-group"><input class="form-control" type="email" formControlName="primaryEmail"></div>
+            <div *ngIf="emailForm.controls['primaryEmail'].invalid && (emailForm.controls['primaryEmail'].dirty || emailForm.controls['primaryEmail'].touched)" class="alert">
+                <div class="error-text" *ngIf="emailForm.controls['primaryEmail'].errors!['required']">
+                Please enter Email
+              </div>
+              <div class="error-text" *ngIf="emailForm.controls['primaryEmail'].errors!['pattern']">
+                Invalid email address
+              </div>
+            </div>
+            <div class="form-group"><button (click)="isCreate()" class="btn-create" type="submit">create account</button></div>
+            
+        </form>
+        <p id="terms-conditions">By registering you agree to the <span class="span-text">Terms & Conditions</span></p>
+        <div class="other-apps">
+        <button class="btn facebook">Facebook</button>
+        <button class="btn google">Google+</button>
+        </div>
+        <p id="login-text">Already have an acount?&nbsp;<span (click)="loginPage()" class="span-text">Login</span></p>
+        
+    </div>
+</div>
+
