@@ -6,7 +6,7 @@
     <div class="form-container">
         <div class="form-heading">Lets get started!</div>
     
-        <div><form [formGroup]="loginForm">
+        <div [formGroup]="loginForm"><form >
             <label id="form-label">Email</label>
             <div class="form-group"><input class="form-control" type="email" formControlName="loginEmail"></div>
             <div *ngIf="loginForm.controls['loginEmail'].invalid && (loginForm.controls['loginEmail'].dirty || loginForm.controls['loginEmail'].touched)" class="alert">
