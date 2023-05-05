@@ -72,3 +72,14 @@
   letter-spacing: -0.2px;
   
   }
+   #password-field{
+    display:flex; 
+    padding-right: 20px;
+    padding-bottom: 20px;
+   } 
+
+#blink-icon{
+   color: #858585;
+   border-bottom: 1px solid #A4A4A4; ;
+   
+  } 

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NewPasswordInputComponent {
   forgotForm!:FormGroup;
+  hide=true;
   constructor(private router: Router,private fb: FormBuilder) {
     this.createForm();
   }

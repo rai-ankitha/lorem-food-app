@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class UserDetailsComponent {
   userDetailsForm!:FormGroup;
+  hide=true;
   constructor(private router: Router,private fb: FormBuilder) {
     this.createForm();
   }

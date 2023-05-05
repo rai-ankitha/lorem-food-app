@@ -31,9 +31,14 @@
             Enter a valid Mobile Number
           </div>
         </div>
+       
         <label id="form-label">Create Password</label>
-        <div class="form-group"><input class="form-control" type="text" formControlName="password"></div>
         
+        <div id="password-field"><input class="form-control" [type]="hide?'password':'text'" formControlName="password">
+            <mat-icon matSuffix id="blink-icon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div>
+       
+    
         <div *ngIf="userDetailsForm.controls['password'].invalid && (userDetailsForm.controls['password'].dirty || userDetailsForm.controls['password'].touched)" class="alert">
             <div class="error-text" *ngIf="userDetailsForm.controls['password'].errors!['required']">
             Please enter Password

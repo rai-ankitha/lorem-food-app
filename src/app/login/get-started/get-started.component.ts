@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class GetStartedComponent {
   loginForm!:FormGroup;
+  hide=true;
   constructor(private router: Router,private fb: FormBuilder) {
     this.createForm();
   }
