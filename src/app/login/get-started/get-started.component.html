@@ -1,7 +1,10 @@
 <div *ngIf="isForgotPassword">
     <app-otp-verification>/</app-otp-verification>
 </div>
-<div *ngIf="!isForgotPassword">
+<div *ngIf="isSignUp">
+    <app-email-input>/</app-email-input>
+</div>
+<div *ngIf="!isForgotPassword && !isSignUp">
     <div class="close-button"> <mat-icon id="close-icon">close</mat-icon></div>
     <div class="form-container">
         <div class="form-heading">Lets get started!</div>

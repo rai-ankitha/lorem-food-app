@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-password-success.component.css']
 })
 export class NewPasswordSuccessComponent {
-
+  loginNowFunc(){}
 }

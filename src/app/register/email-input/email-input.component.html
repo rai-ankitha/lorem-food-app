@@ -1,7 +1,10 @@
 <div *ngIf="isCreateBool">
     <app-email-verification>/</app-email-verification>
 </div>
-<div *ngIf="!isCreateBool">
+<div *ngIf="isLogin">
+    <app-get-started>/</app-get-started>
+</div>
+<div *ngIf="!isCreateBool && !isLogin">
     <div > <mat-icon class="close-button">close</mat-icon></div>
     <div class="form-container">
         <div class="form-heading">Create your account</div>

@@ -35,7 +35,9 @@ isLogin(){
     console.log("submitted!!")
   }
 }
+isSignUp=false;
 createNewAccount(){
-this.router.navigate(['/register']);
+// this.router.navigate(['/home']);
+this.isSignUp=true;
 }
 }

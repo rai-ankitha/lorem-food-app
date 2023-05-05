@@ -22,7 +22,7 @@ export class EmailInputComponent implements OnInit{
   }
   
   isLogin=false;
-  isCreateBool:boolean=true;
+  isCreateBool:boolean=false;
   isCreate(){
     console.log("submitted")
     if(this.emailForm.valid){
