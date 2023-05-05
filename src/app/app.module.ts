@@ -20,6 +20,7 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { OtpVerificationComponent } from './login/otp-verification/otp-verification.component';
 import { NewPasswordInputComponent } from './login/new-password-input/new-password-input.component';
 import { NewPasswordSuccessComponent } from './login/new-password-success/new-password-success.component';
+import { WelcomeComponent } from './login/welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { NewPasswordSuccessComponent } from './login/new-password-success/new-pa
     ForgotPasswordComponent,
     OtpVerificationComponent,
     NewPasswordInputComponent,
-    NewPasswordSuccessComponent
+    NewPasswordSuccessComponent,
+    WelcomeComponent
 
   ],
   imports: [

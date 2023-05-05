@@ -1,11 +1,14 @@
+<div *ngIf="isSubmit">
+    <app-welcome></app-welcome>
+ </div>
 <div *ngIf="isForgotPassword">
     <app-forgot-password>/</app-forgot-password>
 </div>
 <div *ngIf="isSignUp">
     <app-email-input>/</app-email-input>
 </div>
-<div *ngIf="!isForgotPassword && !isSignUp">
-    <div class="close-button"> <mat-icon id="close-icon">close</mat-icon></div>
+<div *ngIf="!isForgotPassword && !isSignUp && !isSubmit">
+    <div > <mat-icon class="close-btn">close</mat-icon></div>
     <div class="form-container">
         <div class="form-heading">Lets get started!</div>
     

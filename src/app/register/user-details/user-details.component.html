@@ -1,3 +1,8 @@
+<div *ngIf="isSubmit">
+   <app-welcome></app-welcome>
+</div>
+<div *ngIf="!isSubmit">
+    <div> <img src="./assets/authentication/arrow.png" alt="back arrow" class="back-btn"></div>
 <div class="verification-container">
     <div class="form-heading">Verified!</div>
     <div class="form-description">
@@ -51,4 +56,6 @@
         
     </form>
     
+</div>
+
 </div>

@@ -1,4 +1,9 @@
-
+.back-btn {
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 17px;
+    width: 17px;
+  }
 .verification-container {
     margin: 50px 60px 45px 50px;
   }

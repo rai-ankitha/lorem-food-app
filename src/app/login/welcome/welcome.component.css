@@ -1,15 +1,8 @@
-.back-btn {
-    padding-top: 10px;
-    padding-left: 10px;
-    height: 17px;
-    width: 17px;
-  }
-.verification-container {
-    margin: 50px 60px 45px 50px;
+.welcome-container {
+    margin: 80px 60px 45px 50px;
   }
   .img-container{
-    height: 130px;
-    width: 130px;
+
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -17,7 +10,16 @@
 }
   .form-heading {
     text-align: center;
-    padding: 50px 0px 0px 0px;
+    padding: 60px 0px 0px 20px;
+    color: #2a2c30;
+    font-weight: bold;
+    font-family: "Open Sans";
+    font-size: 28px;
+    letter-spacing: -0.47px;
+  }
+  .form-heading2 {
+    text-align: center;
+    padding: 20px 0px 0px 40px;
     color: #2a2c30;
     font-weight: bold;
     font-family: "Open Sans";
@@ -39,29 +41,13 @@
   #third-line{
     padding: 0px 10px;
   }
-  #form-label {
-    display: block;
-    padding-top: 30px;
-    color: #858585;
-    font-family: "Open Sans";
-    font-size: 15px;
-  }
   .form-group{
-    padding-right: 20px;
+    padding-right: 10px;
   }
-  
-  .form-control {
-   
-    border: none;
-    border-bottom: 1px solid #000000;
-    padding: 10px 0px;
-    outline: none;
-    width: 100%;
-  }
-  .btn-done {
+  .btn-login-now {
     border: none;
     width: 100%;
-    margin-top: 70px;
+    margin-top: 50px;
     padding: 15px;
     text-align: center;
     text-transform: uppercase;
@@ -74,23 +60,3 @@
     background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
     box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
   }
-  .error-text{
-    padding-top: 10px;
-    color: #ED1B2E;
-  font-family: "Open Sans";
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: -0.2px;
-  }
-  #password-field{
-    display:flex; 
-    padding-right: 20px;
-   
-   } 
-
-#blink-icon{
-   color: #858585;
-   border-bottom: 1px solid #000000;
-   padding-bottom: 20px;
-   
-  } 

@@ -24,9 +24,11 @@ export class UserDetailsComponent {
      ]],
     });
   }
+  isSubmit=false;
   submit(){
     if(this.userDetailsForm.valid){
       console.log("submitted!!")
+      this.isSubmit=true;
     }
   }
 }

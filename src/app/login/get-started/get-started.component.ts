@@ -30,9 +30,11 @@ forgotPassword(){
   
   this.isForgotPassword=true;
 }
+isSubmit=false;
 isLogin(){
   if(this.loginForm.valid){
     console.log("submitted!!")
+    this.isSubmit=true;
   }
 }
 isSignUp=false;

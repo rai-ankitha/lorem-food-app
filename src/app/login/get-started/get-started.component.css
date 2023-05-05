@@ -1,5 +1,5 @@
 .close-btn{
-   margin:auto ;
+    flex-direction:row-reverse;
   }
   /* #close-icon{
     display:flex;             
