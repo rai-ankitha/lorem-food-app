@@ -11,6 +11,8 @@ import { EmailInputComponent } from './register/email-input/email-input.componen
 import { EmailVerificationComponent } from './register/email-verification/email-verification.component';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserDetailsComponent } from './register/user-details/user-details.component';
 import { GetStartedComponent } from './login/get-started/get-started.component';
@@ -41,6 +43,8 @@ import { NewPasswordSuccessComponent } from './login/new-password-success/new-pa
     RouterModule.forRoot([]),
     MatIconModule,
     ReactiveFormsModule,
+    MatTabsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
