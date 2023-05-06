@@ -8,15 +8,29 @@
   display: flex;
   flex-flow: row wrap;
   width: 95%;
-  padding-top: 3%;
+  padding-top: 4%;
   margin: auto;
 }
 
 .lorem-logo {
   flex-grow: 1;
+  font-family: "Bebas Neue";
+  font-size: 50px;
+  letter-spacing: 0;
+  text-align: start;
+  align-items: start;
+  vertical-align: top;
+  margin: 0;
+  line-height: 40px;
+  background:linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .nav-list {
-  display: block;
+  display: inline-block;
+  align-items: center;
+  vertical-align: bottom;
+  line-height: 50px;
   justify-content: flex-end;
 }
 ul {
@@ -29,7 +43,7 @@ ul {
 li {
   float: left;
 }
-li a {
+.list-items {
   color: #303134;
   font-family: "Open Sans";
   font-size: 16px;

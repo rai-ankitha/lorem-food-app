@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class GetStartedComponent {
   loginForm!:FormGroup;
   hide=true;
+  notFocused = false;
   constructor(private router: Router,private fb: FormBuilder) {
     this.createForm();
   }
@@ -19,7 +20,7 @@ export class GetStartedComponent {
       loginPassword: ['', [
         Validators.required, 
         Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$")
-     ]],
+     ] ],updateOn: 'submit'
     });
   }
 isForgotPassword=false;

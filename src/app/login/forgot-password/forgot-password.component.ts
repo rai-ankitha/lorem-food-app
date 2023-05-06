@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ForgotPasswordComponent {
   isSendOtp=false;
   forgotForm!:FormGroup;
-  
+  notFocused=false;
   constructor(private router: Router,private fb: FormBuilder) {
     this.createForm();
   }

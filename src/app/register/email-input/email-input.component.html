@@ -13,12 +13,12 @@
         </div>
         <form [formGroup]="emailForm">
             <label id="form-label">Email</label>
-            <div class="form-group"><input class="form-control" type="email" formControlName="primaryEmail"></div>
+            <div class="form-group"><input class="form-control" type="email" formControlName="primaryEmail"  (focus)="notFocused=false" (focusout)="notFocused=true"></div>
             <div *ngIf="emailForm.controls['primaryEmail'].invalid && (emailForm.controls['primaryEmail'].dirty || emailForm.controls['primaryEmail'].touched)" class="alert">
                 <div class="error-text" *ngIf="emailForm.controls['primaryEmail'].errors!['required']">
                 Please enter Email
               </div>
-              <div class="error-text" *ngIf="emailForm.controls['primaryEmail'].errors!['pattern']">
+              <div class="error-text" *ngIf="emailForm.controls['primaryEmail'].errors!['pattern'] && notFocused">
                 Invalid email address
               </div>
             </div>

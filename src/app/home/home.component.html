@@ -4,10 +4,10 @@
             <div class="lorem-logo">LOREM</div> 
             <div class="nav-list"></div>
             <ul>
-                <li><a routerLink="/home" routerLinkActive="active" 
-                    >LOGIN</a></li>
-                <li><a routerLink="/favorite" routerLinkActive="active">CREATE AN ACCOUNT</a></li>
-                <li><a routerLink="/recent" routerLinkActive="active">CART</a></li>
+                <li (click)="openLoginPopup()" class="list-items"> 
+                    LOGIN</li>
+                <li (click)="openRegisterPopup()" class="list-items">CREATE AN ACCOUNT</li>
+                <li  class="list-items">CART</li>
             </ul>
         
         

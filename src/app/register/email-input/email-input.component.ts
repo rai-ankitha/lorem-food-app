@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class EmailInputComponent implements OnInit{
   emailForm!:FormGroup;
+  notFocused=false;
   constructor(private router: Router,private fb: FormBuilder) {
     this.createForm();
   }
