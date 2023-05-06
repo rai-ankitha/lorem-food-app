@@ -11,8 +11,7 @@ import { EmailInputComponent } from './register/email-input/email-input.componen
 import { EmailVerificationComponent } from './register/email-verification/email-verification.component';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
-import {MatTabsModule} from '@angular/material/tabs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserDetailsComponent } from './register/user-details/user-details.component';
 import { GetStartedComponent } from './login/get-started/get-started.component';
@@ -21,6 +20,11 @@ import { OtpVerificationComponent } from './login/otp-verification/otp-verificat
 import { NewPasswordInputComponent } from './login/new-password-input/new-password-input.component';
 import { NewPasswordSuccessComponent } from './login/new-password-success/new-password-success.component';
 import { WelcomeComponent } from './login/welcome/welcome.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,10 +49,13 @@ import { WelcomeComponent } from './login/welcome/welcome.component';
     RouterModule.forRoot([]),
     MatIconModule,
     ReactiveFormsModule,
-    MatTabsModule,
-    BrowserAnimationsModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
