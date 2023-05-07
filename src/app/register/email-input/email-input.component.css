@@ -5,10 +5,17 @@
   right: -20px;
 }
 .form-container {
+     /* width: 48%; */
+     /* margin: auto;
+     padding-left: 14%;
+     padding-top: 13%; */
+     /* padding: 5% 6% 6% 5%; */
     margin: 50px 60px 45px 50px;
+    /* margin: 20% 21% 6% 20%; */
   }
   .form-heading {
     padding: 0px 40px 20px 60px;
+   
     margin: auto;
     color: #2a2c30;
     font-weight: bold;
