@@ -11,18 +11,18 @@
  
 } */
 .navbar {
-  padding-top: 50px;
+  padding-top:3%;
   width: 95%;
   display: flex;
   flex-flow: row wrap;
  flex-direction: row;
-  /* padding-top: 4%; */
+
   margin: auto;
 }
 
 .lorem-logo {
- color: #ffff;
-  width: 60%;
+ /* color: #ffff;
+  width: 60%; */
   flex-grow: 1;
   font-family: "Bebas Neue";
   font-size: 50px;
@@ -251,8 +251,8 @@ p,h1{
 .country-img{
   
   box-sizing: border-box;
-  height: 31px;
-  width: 31px;
+  height: 3%;
+  width:3%;
   margin: 10px;
 }
 .orange-text{

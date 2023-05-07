@@ -1,0 +1,50 @@
+.horizontal-line{
+    border: 1px solid #EDEDED;
+  }
+  .text-style{
+    color: #757575;
+    font-family: "Open Sans";
+    font-size: 14px;
+  }
+  .container3{
+    background: #ffffff;
+    padding-left:24%;
+    padding-top: 1%;
+    padding-bottom: 4%;
+    padding-right: 22%;
+  }
+  .content3-flex1{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  .lorem-text{
+    font-family: "Bebas Neue";
+    font-size: 50px;
+    letter-spacing: 0;
+    justify-content: flex-start;
+    line-height: 40px;
+    background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .country-img{
+    
+    box-sizing: border-box;
+    height: 3%;
+    width:3%;
+    margin: 10px;
+  }
+  .orange-text{
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 33px;
+    background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
