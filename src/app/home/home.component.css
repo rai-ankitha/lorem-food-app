@@ -114,10 +114,12 @@ display: flex;
 }
 .location-box{
   color: #000;
+  display: flex;
+  /* justify-content: space-between; */
   background-color: #FFFFFF;
   /* flex-grow: 1; */
-  width: 60%;
- 
+  width: 70%;
+ margin-right: 20px;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14);
@@ -128,22 +130,35 @@ display: flex;
   color: #000;
   /* flex-grow: 1; */
   margin-right: 10px;
+  margin-left: 10px;
 }
 .date-box{
   color: #000;
- 
+ display: flex;
+ justify-content: flex-start;
   background-color: #FFFFFF;
-  /* width: 100%; */
+width: 38%;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
+ 
   box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14);
   font-size: 16px;
+}
+.date-box-input {
+  all: unset;
+  color: #000;
+  /* flex-grow: 1; */
+  /* margin-right: 10px;
+  margin-left: 10px; */
 }
 ::ng-deep .mat-button-focus-overlay {
   display: none;
 }
-.icon-class:focus{
+.icon-class{
   outline: none;
+  vertical-align:middle;
+  margin: 0;
+  padding: 0;
 }
 .container-2 {
   background: url("src/assets/home/homdiv2-background.png");

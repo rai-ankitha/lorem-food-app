@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
 
 })
 export class HomeComponent {
+  minDate = new Date();
   // date1:string;
 constructor(private dialogRef:MatDialog,private datePipe: DatePipe){
 //   const date1=this.datePipe.transform(Date.now(),'Today,MMM d, y');

@@ -34,7 +34,7 @@
             alt="pin"
             style="cursor: pointer"
           />
-          <input class="location-box-input" size="1" type="text" />
+          <input class="location-box-input"  type="text" />
           <img
             src="./assets/home/icn_gps_indicator.png"
             alt="geolocator"
@@ -51,7 +51,7 @@
         
           <div class="date-box">
             
-          <input class="location-box-input"  matInput  [matDatepicker]="picker" [formControl]="date1 "/>
+          <input class="date-box-input"  matInput  [matDatepicker]="picker" [min]="minDate" [formControl]="date1 "/>
           <mat-datepicker-toggle [for]="picker">
             <mat-icon [autofocus]="false" class="icon-class" matDatepickerToggleIcon>
             <img (click)="picker.open()"
