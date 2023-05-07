@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,7 @@ import { DatePipe } from '@angular/common';
 export class HomeComponent {
   minDate = new Date();
   // date1:string;
-constructor(private dialogRef:MatDialog,private datePipe: DatePipe){
+constructor(private dialogRef:MatDialog,private datePipe: DatePipe,private router: Router,){
 //   const date1=this.datePipe.transform(Date.now(),'Today,MMM d, y');
 }
 
@@ -23,5 +24,8 @@ openRegisterPopup(){
 }
 openLoginPopup(){
   this.dialogRef.open(LoginComponent);
+}
+goToDashboard(){
+  this.router.navigateByUrl("/dashboard");
 }
 }

@@ -25,6 +25,11 @@ import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
+import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './main/header/header.component';
+import { FooterComponent } from './main/footer/footer.component';
+import { RestaurantSearchComponent } from './main/restaurant-search/restaurant-search.component';
+import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,12 @@ import { DatePipe } from '@angular/common';
     OtpVerificationComponent,
     NewPasswordInputComponent,
     NewPasswordSuccessComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MainComponent,
+    HeaderComponent,
+    FooterComponent,
+    RestaurantSearchComponent,
+    RestaurantMenuComponent
 
   ],
   imports: [
