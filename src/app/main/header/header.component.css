@@ -1,6 +1,4 @@
-.container{
- 
-}
+
 .navbar {
   color: #ffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
@@ -88,6 +86,7 @@
 
 .search-field {
   margin-top: 1%;
+
   display: flex;
   justify-content: space-between;
 }
