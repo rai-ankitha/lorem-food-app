@@ -1,3 +1,6 @@
+.container{
+ 
+}
 .navbar {
   color: #ffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
@@ -73,7 +76,7 @@
 
 /* Search container */
 .search-background {
-  background: url("src/assets/home/homdiv2-background.png");
+  background: url("src/assets/header/bg_pattern.png");
 }
 
 .search-container {
@@ -119,7 +122,14 @@
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14);
   font-size: 16px;
 }
-
+.location-img{
+  height: 22px;
+  width: 22px;
+}
+.icn-pin-img{
+  height: 18px;
+  width: 10px;
+}
 .location-box-input {
   all: unset;
   color: #000;

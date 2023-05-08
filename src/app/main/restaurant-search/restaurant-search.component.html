@@ -1,1 +1,131 @@
-<p>restaurant-search works!</p>
+<div class="container">
+  <div class="nav-link">
+    <div class="navbar">
+      <a routerLink="/home"><div class="list-items">Home</div></a>
+      <div class="list-items">></div>
+      <div class="list-items">UDUPI</div>
+      <div class="list-items">></div>
+      <a routerLink="/dashboard"><div class="list-items">Explore</div></a>
+      <div class="list-items">></div>
+      <div class="list-items">Breakfasts</div>
+    </div>
+  </div>
+  <div class="content">
+    <div id="content-heading">Breakfast in Udupi</div>
+    <div class="sorting">
+      <p class="sorting-text">
+        List by:<span style="color: #fca100"> All</span>
+      </p>
+      <p class="sorting-text">
+        Sort by: <span style="color: #fca100">Rating</span>
+      </p>
+    </div>
+    <div class="flex-items">
+      <div class="filter-card">
+        <div class="filter-flex">
+          <div id="filter-text">Filters</div>
+          <div class="orange-text">Reset All</div>
+        </div>
+        <div class="horizontal-line"></div>
+        <div class="filter-flex">
+          <div id="time-text">TIME & AVERAGE MEAL COST</div>
+          <div>-</div>
+        </div>
+        <form [formGroup]="radioOpenForm">
+          <div class="filter-sub-text">Show restaurant with</div>
+          <label class="form-control"
+            ><input type="radio" value="open" formControlName="openNow" />
+            <span>Open Now</span>
+          </label>
+          <div class="filter-sub-text">Delivery in</div>
+          <div class="form-control">
+            <input type="radio" value="30" formControlName="time" checked />
+            <span>30 min</span>
+          </div>
+          <div class="form-control">
+            <input type="radio" value="45" formControlName="time" />
+            <span>45 min</span>
+          </div>
+          <div class="form-control">
+            <input type="radio" value="60" formControlName="time" />
+            <span>60 min</span>
+          </div>
+          <div class="filter-sub-text">Average Meal cost</div>
+          <div class="form-control">
+            <input
+              type="radio"
+              value="30AED"
+              formControlName="maxCost"
+              checked
+            />
+            <span>Upto 30 AED</span>
+          </div>
+          <div class="form-control">
+            <input type="radio" value="60AED" formControlName="maxCost" />
+            <span>Upto 60 AED</span>
+          </div>
+          <div class="form-control">
+            <input type="radio" value="100AED" formControlName="maxCost" />
+            <span>Upto 100 AED</span>
+          </div>
+
+          <div class="filter-sub-text">Minimum order</div>
+          <div class="form-control">
+            <input
+              type="radio"
+              value="30AED"
+              formControlName="minCost"
+              checked
+            />
+            <span>Upto 60 AED</span>
+          </div>
+
+          <div class="form-control">
+            <input type="radio" value="100AED" formControlName="minCost" />
+            <span>Upto 100 AED</span>
+          </div>
+        </form>
+        <div class="horizontal-line"></div>
+        <div class="filter-flex">
+          <div id="time-text">CUISINES</div>
+          <div>+</div>
+        </div>
+        <div class="horizontal-line"></div>
+        <div id="btn-class"><button class="btn-apply">APPLY</button></div>
+
+      </div>
+<!-- Restaurant list -->
+      <div class="restaurant-list" >
+        <div class="restaurant-card" *ngFor="let item of items">
+            <img class="food-img" src="./assets/search/food-img.png" alt="food" />
+            <div class="restaurant-details">
+              <div class="title-rating">
+                  <div id="restaurant-title">The Boutique Kitchen</div>
+                  <div class="rating-box">3.8</div>
+                </div>
+                <div class="location-text">Shiekh Zayed Road, Dubai, UAE</div>
+                <div class="horizontal-line"></div>
+                <div class="title-rating">
+                  <div class="cost-and-status">
+                      <div class="location-text">Indian, Pakistani, Kebab</div>
+                      <div class="location-text">Open Now</div>
+                      <div id="cost-details">
+                          
+                              <div>•&nbsp;63 mins&nbsp;</div>
+                              <div>•&nbsp;AED40 min order&nbsp;</div>
+                              <div>•&nbsp;AED60 avg meal cost</div>
+                  
+                      </div>
+                      
+                  </div>
+                  <div id="menu-icon"><img id="menu-img" src="./assets/search/menu.png" alt="menu"></div>
+                </div>
+              
+            </div>
+           
+  
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

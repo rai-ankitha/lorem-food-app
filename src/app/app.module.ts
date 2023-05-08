@@ -12,7 +12,7 @@ import { EmailVerificationComponent } from './register/email-verification/email-
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDetailsComponent } from './register/user-details/user-details.component';
 import { GetStartedComponent } from './login/get-started/get-started.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
@@ -60,6 +60,7 @@ import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.
     MatIconModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    FormsModule,
     MatDatepickerModule,
     MatInputModule,
     BrowserAnimationsModule,
