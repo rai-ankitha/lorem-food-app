@@ -96,7 +96,7 @@
       </div>
 <!-- Restaurant list -->
       <div class="restaurant-list" >
-        <div class="restaurant-card" *ngFor="let item of items">
+        <div  class="restaurant-card" *ngFor="let item of items">
             <img class="food-img" src="./assets/search/food-img.png" alt="food" />
             <div class="restaurant-details">
               <div class="title-rating">
@@ -118,7 +118,7 @@
                       </div>
                       
                   </div>
-                  <div id="menu-icon"><img id="menu-img" src="./assets/search/menu.png" alt="menu"></div>
+                  <div id="menu-icon"><img id="menu-img" (click)="goToRestaurant()"  src="./assets/search/menu.png" alt="menu"></div>
                 </div>
               
             </div>

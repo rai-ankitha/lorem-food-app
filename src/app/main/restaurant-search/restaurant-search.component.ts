@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-search',
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RestaurantSearchComponent {
   radioOpenForm: FormGroup;
   items: {}[];
-  constructor(fb: FormBuilder) {
+  goToRestaurant(){
+    this.router.navigateByUrl("explore/restaurant-details");
+  }
+  constructor(fb: FormBuilder,private router: Router) {
     
     this.radioOpenForm = fb.group({
       openNow: ['', Validators.required],
@@ -20,7 +24,7 @@ export class RestaurantSearchComponent {
     });
   
     this.items=[{},{},{},{},{},{}];
-   
+    
   }
   
 }

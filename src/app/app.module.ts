@@ -30,6 +30,7 @@ import { HeaderComponent } from './main/header/header.component';
 import { FooterComponent } from './main/footer/footer.component';
 import { RestaurantSearchComponent } from './main/restaurant-search/restaurant-search.component';
 import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.component';
+import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.
     HeaderComponent,
     FooterComponent,
     RestaurantSearchComponent,
-    RestaurantMenuComponent
+    RestaurantMenuComponent,
+    RestaurantDetailsComponent
 
   ],
   imports: [

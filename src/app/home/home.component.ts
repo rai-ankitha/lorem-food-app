@@ -26,6 +26,6 @@ openLoginPopup(){
   this.dialogRef.open(LoginComponent);
 }
 goToDashboard(){
-  this.router.navigateByUrl("/dashboard");
+  this.router.navigateByUrl("/explore");
 }
 }

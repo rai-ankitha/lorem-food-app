@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="nav-link">
+      <div class="navbar">
+        <a routerLink="/home"><div class="list-items">Home</div></a>
+        <div class="list-items">></div>
+        <div class="list-items">UDUPI</div>
+        <div class="list-items">></div>
+        <a routerLink="/dashboard"><div class="list-items">Explore</div></a>
+        <div class="list-items">></div>
+        <div class="list-items">Breakfasts</div>
+        <div class="list-items">></div>
+        <div class="list-items">The Boutique Kitchen</div>
+      </div>
+    </div>
+    <!-- restaurant card -->
+    <div class="restaurant-card-bg"> </div>
+      <div class="restaurant-card">
+        <img src="./assets/restaurant-details/restaurant-spoon.png" alt="spoon" />
+        <div class="restaurant-title">The Boutique Kitchen</div>
+        <div class="resto-sub-text">Indian, Pakistani, Kebab</div>
+        <div class="rating-distance">
+          <button id="btn-rating">4.3</button>
+          <div class="distance-flex-items">•&nbsp;63 mins&nbsp;</div>
+          <div class="distance-flex-items">•&nbsp;AED40 min order&nbsp;</div>
+          <div class="distance-flex-items">•&nbsp;11:00 AM - 10:00 PM</div>
+        </div>
+        <div class="resto-sub-text">Delivery rating for last 5 orders</div>
+        <div class="horizontal-line"></div>
+        <div class="rating-distance">
+          <div class="red"><mat-icon>star</mat-icon> 4</div>
+        </div>
+      </div>
+       <!-- Tabular navigation -->
+    <div class="tabular-container">
+      <div class="tab-flex">
+        <div (click)="menuTab()" [ngClass]="isMenuTab ? 'menu-active-tab' : 'menu-inactive-tab'">MENU</div>
+        <div>OVERVIEW</div>
+        <div>REVIEWS & RATINGS</div>
+        <div>GALLERY</div>
+      </div>
+     <router-outlet></router-outlet>
+    </div>
+   
+  
+   
+  </div>
+  
