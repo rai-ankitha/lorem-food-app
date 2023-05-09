@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./restaurant-menu.component.css']
 })
 export class RestaurantMenuComponent {
-
+  items: {}[];
+  constructor(){
+    this.items=[{},{},{},{},{},{}];
+  }
+  isAdded=true;
 }

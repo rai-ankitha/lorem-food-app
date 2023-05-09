@@ -31,6 +31,7 @@ import { FooterComponent } from './main/footer/footer.component';
 import { RestaurantSearchComponent } from './main/restaurant-search/restaurant-search.component';
 import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.component';
 import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant-details.component';
+import { MyOrdersComponent } from './main/restaurant-menu/my-orders/my-orders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant
     FooterComponent,
     RestaurantSearchComponent,
     RestaurantMenuComponent,
-    RestaurantDetailsComponent
+    RestaurantDetailsComponent,
+    MyOrdersComponent
 
   ],
   imports: [

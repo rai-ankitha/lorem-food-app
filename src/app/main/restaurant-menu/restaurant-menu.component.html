@@ -1,1 +1,86 @@
-<p>Menu works</p>
+<div class="menu-container">
+  <div class="search-food-card">
+    <div class="search-box">
+      <img
+        src="./assets/home/icn_search_home.png"
+        alt="search"
+        style="cursor: pointer"
+      />
+      <input
+        class="search-box-input"
+        type="text"
+        placeholder="Search an Item"
+      />
+    </div>
+    <p>Recommended</p>
+    <div class="food-list">
+      <div class="food-card" *ngFor="let item of items">
+        <img class="food-img" src="./assets/search/food-img.png" alt="food" />
+        <div class="food-details">
+          <div class="title-rating">
+            <div id="food-title">Chili Cheese Meal</div>
+            <img
+              class="bestseller-img"
+              src="./assets/restaurant-details/restaurant-menu/bestseller-tag.png"
+              alt="best seller"
+            />
+          </div>
+          <div class="sub-text">AED27.00</div>
+
+          <div class="title-rating">
+            <div class="description-and-status">
+              <div class="sub-text">
+                <span style="color: #a08234">Customizable</span>
+              </div>
+              <div class="sub-text">
+                Panko breaded mac and cheese balls fried until golden brown and
+                served with our homemade marinara sauce.
+              </div>
+            </div>
+            <div id="add-img">
+              <img
+                src="./assets/restaurant-details/restaurant-menu/add-button.png"
+                alt="menu"
+                *ngIf="!isAdded"
+              />
+              <img
+                src="./assets/restaurant-details/restaurant-menu/added-button.png"
+                alt="menu"
+                *ngIf="isAdded"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- My orders card -->
+  <div class="my-orders-card">
+    <div class="myOrders-flex">
+      <div id="myorder-text">My Order</div>
+      <span>Clear cart</span>
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="item-list">
+      <div class="item-card">
+        <div class="item-title">
+          <img
+            class="veg-nonveg-icon"
+            src="./assets/restaurant-details/restaurant-menu/veg-icon.png"
+            alt=""
+          />
+          <div>Chili Cheese Meal</div>
+          <div class="add-remove-container">
+            <mat-icon>remove</mat-icon>
+            <div>2</div>
+            <mat-icon>remove</mat-icon>
+          </div>
+        </div>
+        <div class="item-title"><div>AED22.00</div>
+      <div>AED44.00</div></div>
+      <div class="remove-icon">Remove</div>
+      </div>
+    </div>
+  </div>
+</div>
