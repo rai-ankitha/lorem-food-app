@@ -32,6 +32,7 @@ import { RestaurantSearchComponent } from './main/restaurant-search/restaurant-s
 import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.component';
 import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant-details.component';
 import { MyOrdersComponent } from './main/restaurant-menu/my-orders/my-orders.component';
+import {HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { MyOrdersComponent } from './main/restaurant-menu/my-orders/my-orders.co
     RestaurantSearchComponent,
     RestaurantMenuComponent,
     RestaurantDetailsComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+   
 
   ],
   imports: [
@@ -68,7 +70,8 @@ import { MyOrdersComponent } from './main/restaurant-menu/my-orders/my-orders.co
     MatDatepickerModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

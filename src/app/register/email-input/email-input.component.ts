@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-email-input',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class EmailInputComponent implements OnInit{
   emailForm!:FormGroup;
   notFocused=false;
-  constructor(private router: Router,private fb: FormBuilder) {
+  constructor(private router: Router,private fb: FormBuilder,private authService:AuthenticationService) {
     this.createForm();
   }
   createForm() {
@@ -27,13 +28,22 @@ export class EmailInputComponent implements OnInit{
   isCreate(){
     console.log("submitted")
     if(this.emailForm.valid){
-      this.isCreateBool=true;
-      console.log("submitted!!")
+      this.authService.postEmail(this.emailForm.get('primaryEmail')!.value).subscribe({
+        next: (v) => alert(v),
+        error: (e) => alert(e.error),
+        complete: () => {
+          sessionStorage.setItem('email', JSON.stringify(this.emailForm.get('primaryEmail')!.value)as any );
+          this.isCreateBool=true;
+          console.log("email submitted!!")
+        }
+      });
+
+      
     }
 
   }
   loginPage(){
-    // this.router.navigate(['/register', 'register2']);
+   
     this.isLogin=true;
   }
 }

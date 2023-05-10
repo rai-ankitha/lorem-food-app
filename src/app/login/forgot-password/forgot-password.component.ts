@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,7 +12,7 @@ export class ForgotPasswordComponent {
   isSendOtp=false;
   forgotForm!:FormGroup;
   notFocused=false;
-  constructor(private router: Router,private fb: FormBuilder) {
+  constructor(private router: Router,private fb: FormBuilder,private authService:AuthenticationService) {
     this.createForm();
   }
   createForm() {
@@ -22,8 +23,16 @@ export class ForgotPasswordComponent {
   }
   sendOtpFunc(){
     if(this.forgotForm.valid){
-      console.log("submitted!!")
+      this.authService.postEmail(this.forgotForm.get('forgotEmail')!.value).subscribe({
+        next: (v) => alert(v),
+        error: (e) => alert(e.error),
+        complete: () => {
+          sessionStorage.setItem('email', JSON.stringify(this.forgotForm.get('forgotEmail')!.value)as any );
+          console.log("  otp sent!!")
       this.isSendOtp=true;
+        }
+      });
+     
     }
    
   }

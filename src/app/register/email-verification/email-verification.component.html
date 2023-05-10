@@ -10,10 +10,14 @@
             <div id="second-line">your email address/mobile no.</div>
             <div id="third-line">You should get it soon!</div>
         </div>
-        <form action="">
+        <form [formGroup]="otpForm">
             <label id="form-label">Enter OTP</label>
-            <div class="form-group"><input class="form-control" type="text" inputmode="numeric"></div>
-        
+            <div class="form-group"><input class="form-control" type="text" inputmode="numeric" formControlName="otp"></div>
+            <div *ngIf="otpForm.controls['otp'].invalid && (otpForm.controls['otp'].dirty || otpForm.controls['otp'].touched)" class="alert">
+                <div class="error-text" *ngIf="otpForm.controls['otp'].errors!['required']">
+                Please enter OTP
+              </div>
+            </div>
             <div class="form-group"><button (click)="isVerifyFunc()" class="btn-verify" type="submit">verify</button></div>
             
         </form>

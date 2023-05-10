@@ -292,3 +292,11 @@ p,h1{
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.error-text{
+  color: #ED1B2E;
+font-family: "Open Sans";
+font-size: 12px;
+padding: 5px;
+font-weight: 600;
+letter-spacing: -0.2px;
+}

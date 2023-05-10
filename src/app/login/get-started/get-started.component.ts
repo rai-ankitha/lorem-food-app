@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-get-started',
@@ -11,7 +12,7 @@ export class GetStartedComponent {
   loginForm!:FormGroup;
   hide=true;
   notFocused = false;
-  constructor(private router: Router,private fb: FormBuilder) {
+  constructor(private router: Router,private fb: FormBuilder,private authService:AuthenticationService) {
     this.createForm();
   }
   createForm() {
@@ -34,8 +35,19 @@ forgotPassword(){
 isSubmit=false;
 isLogin(){
   if(this.loginForm.valid){
-    console.log("submitted!!")
+    this.authService.postLoginDetails(this.loginForm.get('loginEmail')!.value,this.loginForm.get('loginPassword')!.value).subscribe({
+      next: (v) =>alert(v),
+      
+      error: (e) => alert(e.error),
+      complete: () => {
+        alert("Login successful");
+        sessionStorage.setItem('email', JSON.stringify(this.loginForm.get('loginEmail')?.value)as any );
+       
+    console.log("login submitted!!")
     this.isSubmit=true;
+      }
+    });
+   
   }
 }
 isSignUp=false;

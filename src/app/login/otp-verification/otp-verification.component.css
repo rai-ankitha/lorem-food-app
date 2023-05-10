@@ -73,3 +73,10 @@
     background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
     box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
   }
+  .error-text{
+    color: #ED1B2E;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  }

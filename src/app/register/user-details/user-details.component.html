@@ -28,10 +28,8 @@
         </div>
         <label id="form-label">Enter mobile number(optional)</label>
         <div class="form-group"><input class="form-control" type="text" inputmode="numeric" formControlName="mobileNumber" (focus)="notFocused=false" (focusout)="notFocused=true"></div>
-        <div *ngIf="userDetailsForm.controls['mobileNumber'].invalid && (userDetailsForm.controls['mobileNumber'].dirty || userDetailsForm.controls['mobileNumber'].touched)" class="alert">
-            <div class="error-text" *ngIf="userDetailsForm.controls['mobileNumber'].errors!['required']">
-            Please enter Mobile Number
-          </div>
+        <div *ngIf="userDetailsForm.controls['mobileNumber'].invalid " class="alert">
+          
           <div class="error-text" *ngIf="userDetailsForm.controls['mobileNumber'].errors!['pattern'] && notFocused">
             Enter a valid Mobile Number
           </div>

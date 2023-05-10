@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-user-details',
@@ -11,7 +11,7 @@ export class UserDetailsComponent {
   userDetailsForm!:FormGroup;
   hide=true;
   notFocused=false;
-  constructor(private router: Router,private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private authService:AuthenticationService) {
     this.createForm();
   }
   createForm() {
@@ -28,8 +28,15 @@ export class UserDetailsComponent {
   isSubmit=false;
   submit(){
     if(this.userDetailsForm.valid){
-      console.log("submitted!!")
-      this.isSubmit=true;
+      this.authService.createUser(JSON.parse(sessionStorage.getItem('email')as any),this.userDetailsForm.get('firstName')!.value,this.userDetailsForm.get("lastName")!.value,this.userDetailsForm.get("mobileNumber")?.value,this.userDetailsForm.get("password")!.value).subscribe({
+        next: (v) => alert(v),
+        error: (e) => alert(e.error),
+        complete: () => {
+          console.log(" user details submitted!!")
+          this.isSubmit=true;
+        }
+      });
+     
     }
   }
 }

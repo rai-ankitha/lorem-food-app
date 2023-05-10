@@ -19,13 +19,20 @@
         <p>Order your food</p>
         from the best restaurants
       </div>
+      <form [formGroup]="searchForm">
       <div class="search-box">
         <img (click)="goToDashboard()"
           src="./assets/home/icn_search_home.png"
           alt="search"
           style="cursor: pointer"
         />
-        <input class="search-box-input"  type="text" />
+        <input class="search-box-input"  type="text"  formControlName="search" placeholder="Search your restaurant or cusines"/>
+        
+      </div>
+      <div *ngIf="searchForm.controls['search'].invalid && (searchForm.controls['search'].dirty || searchForm.controls['search'].touched)" class="alert">
+        <div class="error-text" *ngIf="searchForm.controls['search'].errors!['required']">
+        Please enter search field
+      </div>
       </div>
       <div class="location-date">
         <!-- <div class="location-box">
@@ -47,13 +54,15 @@
             alt="pin"
             style="cursor: pointer"
           />
-          <input class="location-box-input" type="text" />
+          <input class="location-box-input" type="text" formControlName="location" />
+          
           <img class="location-img"
             src="./assets/home/icn_gps_indicator.png"
             alt="geolocator"
             style="cursor: pointer"
           />
         </div>
+      
       <!-- <div><mat-form-field>
         <input matInput [matDatepicker]="picker" placeholder="Choose a date" 
         (click)="picker.open()">
@@ -79,6 +88,12 @@
           </div>
         
       </div>
+      <div *ngIf="searchForm.controls['location'].invalid && (searchForm.controls['location'].dirty || searchForm.controls['location'].touched)" class="alert">
+        <div class="error-text" *ngIf="searchForm.controls['location'].errors!['required']">
+        Please enter location field
+      </div>
+      </div>
+    </form>
     </div>
   </div>
   <div class="container-2">
