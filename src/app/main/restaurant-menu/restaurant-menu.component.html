@@ -12,41 +12,40 @@
         placeholder="Search an Item"
       />
     </div>
-    <p>Recommended</p>
+    <p id="side-headings">Recommended</p>
     <div class="food-list">
       <div class="food-card" *ngFor="let item of items">
         <img class="food-img" src="./assets/search/food-img.png" alt="food" />
         <div class="food-details">
           <div class="title-rating">
-            <div id="food-title">Chili Cheese Meal</div>
-            <img
+            <div id="food-title">{{item.foodName}}</div>
+            <img *ngIf="item.isBestSeller"
               class="bestseller-img"
               src="./assets/restaurant-details/restaurant-menu/bestseller-tag.png"
               alt="best seller"
             />
           </div>
-          <div class="sub-text">AED27.00</div>
+          <div class="sub-text">Rs&nbsp;{{item.foodCost}}</div>
 
           <div class="title-rating">
             <div class="description-and-status">
               <div class="sub-text">
-                <span style="color: #a08234">Customizable</span>
+                <span style="color: #a08234">{{item.status}}</span>
               </div>
               <div class="sub-text">
-                Panko breaded mac and cheese balls fried until golden brown and
-                served with our homemade marinara sauce.
+                {{item.description}}
               </div>
             </div>
             <div id="add-img">
               <img
                 src="./assets/restaurant-details/restaurant-menu/add-button.png"
                 alt="menu"
-                *ngIf="!isAdded"
+                *ngIf="!item.isAdded"
               />
               <img
                 src="./assets/restaurant-details/restaurant-menu/added-button.png"
                 alt="menu"
-                *ngIf="isAdded"
+                *ngIf="item.isAdded"
               />
             </div>
           </div>
@@ -74,7 +73,7 @@
           <div class="add-remove-container">
             <mat-icon>remove</mat-icon>
             <div>2</div>
-            <mat-icon>remove</mat-icon>
+            <mat-icon>add</mat-icon>
           </div>
         </div>
         <div class="item-title"><div>AED22.00</div>

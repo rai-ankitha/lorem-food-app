@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 search:any
 location:any;
-constructor(){
+userName:string='';
+isUserPresent=false;
+constructor(private userService:UserService){
  
 }
   ngOnInit(): void {
@@ -16,5 +19,15 @@ constructor(){
   const locationItem=sessionStorage.getItem("searchedLocation")
   this.search=JSON.parse(searchItem!)
   this.location=JSON.parse(locationItem!)
+  this.userName=this.userService.firstName;
+  if(sessionStorage.getItem("token")&& this.userName!=null){
+    this.isUserPresent=true
+  }
+  else{
+    this.isUserPresent=false
   }
 }
+  }
+
+    
+

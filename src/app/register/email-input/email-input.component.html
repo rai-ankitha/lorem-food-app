@@ -22,7 +22,7 @@
                 Invalid email address
               </div>
             </div>
-            <div class="form-group"><button (click)="isCreate()" class="btn-create" type="submit">create account</button></div>
+            <div class="form-group"><button [disabled]="submitted" (click)="create()" class="btn-create" type="submit">create account</button></div>
             
         </form>
         <p id="terms-conditions">By registering you agree to the <span class="span-text">Terms & Conditions</span></p>

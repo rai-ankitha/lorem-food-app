@@ -1,11 +1,12 @@
 
   <div class="navbar">
     <div class="lorem-logo">LOREM</div>
-    <div class="nav-list">
-      <div class="list-items">Ashley
+    <div  *ngIf="isUserPresent" class="nav-list">
+
+      <div class="list-items">{{userName}}
       </div>
       <div id="vertical-line"></div>
-      <div class="list-items">
+      <div  class="list-items">
         Logout
       </div>
       <div class="cart-class">

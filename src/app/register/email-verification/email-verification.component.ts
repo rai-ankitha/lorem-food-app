@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiResponse } from 'src/app/models/restaurant-list';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 
@@ -16,15 +17,20 @@ export class EmailVerificationComponent {
   }
   createForm() {
     this.otpForm = this.fb.group({
-      primaryEmail: ['',[ Validators.required]]
+      otp: ['',[ Validators.required]]
     });
   }
+backButton=false;
+  goBack(){
+    this.backButton=true;
+  }
+
  isVerify:boolean=false;
  isVerifyFunc(){
   if(this.otpForm.valid){
   this.authService.verifyEmail(JSON.parse(sessionStorage.getItem('email')as any),this.otpForm.get('otp')!.value,true).subscribe({
-    next: (v) => alert(v),
-    error: (e) => alert(e.error),
+    next: (v) => alert("OTP verified successfully"),
+    error: (e) => alert("Inavalid OTP"),
     complete: () => {
       this.isVerify=true;
       console.log("otp submitted!!")
