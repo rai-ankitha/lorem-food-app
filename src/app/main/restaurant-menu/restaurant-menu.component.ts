@@ -14,7 +14,7 @@ export class RestaurantMenuComponent implements OnInit{
   isSearching=false;
   search:any;
   restId:any;
-  searchedMenu?:RestaurantMenu
+  searchedMenu:RestaurantMenu[]=[];
   menu:Map<string,RestaurantMenu[]>=new Map([
     ['SOUP', []],
     ['APPETIZER', []],
@@ -52,15 +52,12 @@ export class RestaurantMenuComponent implements OnInit{
   
   searchMenu(e:any) {
    
-    this.isSearching=true;
+    
     if(e.keyCode == 13){
       this.restService.getSearchedMenu(this.restId, this.search).subscribe({
         next: (response) => {  console.log(response["data"]);
-        this.isSearching=false;
-        for(let item of response["data"]){
-          console.log('item', item);
-        this.menu.get(item["dishType"])?.push(item)
-        }
+        this.isSearching=true;
+        this.searchedMenu=response["data"]
         },
         error: (e) => {
           alert(e.error.message);

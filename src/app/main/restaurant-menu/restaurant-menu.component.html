@@ -58,13 +58,14 @@
     </div>
     </div></div>
 
-    <div *ngIf="isSearching">
-      <div *ngFor="let item of menu | keyvalue" class="food-list">
-        <div *ngIf="item.value.length
-        >0" >
-        <div class="food-card" *ngFor="let data of item.value">
   
-          <img class="food-img" src="{{data.image}}" alt="food" />
+      <div  *ngIf="isSearching" class="food-list">
+        <div class="food-card" *ngFor="let data of searchedMenu">
+  <div> <img class="food-img" src="{{data.image}}" alt="food" />
+    <img *ngIf="data.veg" class="veg-icon" src=".\assets\restaurant-details\restaurant-menu\veg-icon.png" alt="veg">
+    <img *ngIf="!data.veg" class="veg-icon" src=".\assets\restaurant-details\restaurant-menu\non-veg-icon.png" alt="non-veg">
+  </div>
+         
           <div class="food-details">
             <div class="title-rating">
               <div id="food-title">{{data.name}}</div>
@@ -100,13 +101,17 @@
             </div>
           </div>
         </div>
+    
       </div>
-      </div></div>
 
   </div>
 
   <!-- My orders card -->
   <div class="my-orders-card">
+    <app-my-orders></app-my-orders>
+  </div>
+ 
+  <!-- <div class="my-orders-card">
     <div class="myOrders-flex">
       <div id="myorder-text">My Order</div>
       <span>Clear cart</span>
@@ -132,5 +137,5 @@
       <div class="remove-icon">Remove</div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

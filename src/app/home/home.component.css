@@ -103,6 +103,10 @@ display: flex;
   flex-grow: 1;
   margin-right: 20px;
   margin-left: 20px;
+  text-align: center;
+}
+.search-box-input ::placeholder{
+  text-align: center;
 }
 .location-date{
   display: flex;
