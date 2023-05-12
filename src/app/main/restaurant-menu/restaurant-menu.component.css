@@ -41,9 +41,9 @@
   .food-card {
    
     height: fit-content;
-    padding-right: 1%;
+    padding-right: 10px;
    
-    margin-bottom: 2%;
+    margin-bottom: 20px;
     border-radius: 6px;
     background-color: #ffff;
     display: flex;
@@ -56,14 +56,15 @@
     font-size: 18px;
   }
   .food-img {
-    padding: 1%;
-    height: 15%;
+    padding: 10px;
+    height: 100px;
     /* height: fit-content; */
-    width: 15%;
+    width: 110px;
     border-radius: 4px;
   }
   .food-details{
     display: flex;
+    height: fit-content;
     flex-direction: column;
     width: 100%;
   }

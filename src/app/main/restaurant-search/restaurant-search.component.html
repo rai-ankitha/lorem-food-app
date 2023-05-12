@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="!isLoading" class="container">
   <div class="nav-link">
     <div class="navbar">
       <a routerLink="/home"><div class="list-items">Home</div></a>
@@ -96,29 +96,29 @@
       </div>
 <!-- Restaurant list -->
       <div class="restaurant-list" >
-        <div  class="restaurant-card" *ngFor="let item of items">
-            <img class="food-img" src="./assets/search/food-img.png" alt="food" />
+        <div  class="restaurant-card" *ngFor="let item of restList">
+            <img class="food-img" src="{{item.image}}" alt="food" />
             <div class="restaurant-details">
               <div class="title-rating">
-                  <div id="restaurant-title">The Boutique Kitchen</div>
-                  <div class="rating-box">3.8</div>
+                  <div id="restaurant-title">{{item.name}}</div>
+                  <div class="rating-box">{{item.rating}}</div>
                 </div>
-                <div class="location-text">Shiekh Zayed Road, Dubai, UAE</div>
-                <div class="horizontal-line"></div>
+                <div class="location-text">{{item.address}}</div>
+                <div class="rest-card-line"></div>
                 <div class="title-rating">
                   <div class="cost-and-status">
-                      <div class="location-text">Indian, Pakistani, Kebab</div>
-                      <div class="location-text">Open Now</div>
+                      <div class="location-text">{{item.food_types}}</div>
+                      <div class="location-text">{{item.status}}</div>
                       <div id="cost-details">
                           
-                              <div>•&nbsp;63 mins&nbsp;</div>
-                              <div>•&nbsp;AED40 min order&nbsp;</div>
-                              <div>•&nbsp;AED60 avg meal cost</div>
+                              <div>•&nbsp;{{item.deliveryTimeInMins}} mins&nbsp;</div>
+                              <div>•&nbsp;Rs{{item.min_order_cost}} min order&nbsp;</div>
+                              <div>•&nbsp;Rs{{item.avg_meal_cost}} avg meal cost</div>
                   
                       </div>
                       
                   </div>
-                  <div id="menu-icon"><img id="menu-img" (click)="goToRestaurant()"  src="./assets/search/menu.png" alt="menu"></div>
+                  <div id="menu-icon"><img id="menu-img" (click)="goToRestaurant(item.id)"  src="./assets/search/menu.png" alt="menu"></div>
                 </div>
               
             </div>

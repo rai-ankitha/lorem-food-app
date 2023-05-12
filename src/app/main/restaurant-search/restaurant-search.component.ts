@@ -1,30 +1,71 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
+import { Restaurant } from 'src/app/models/restaurant-list';
+import { RestDetailsService } from 'src/app/services/rest-details.service';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-search',
   templateUrl: './restaurant-search.component.html',
-  styleUrls: ['./restaurant-search.component.css']
+  styleUrls: ['./restaurant-search.component.css'],
 })
-export class RestaurantSearchComponent {
+export class RestaurantSearchComponent implements OnInit {
   radioOpenForm: FormGroup;
-  items: {}[];
-  goToRestaurant(){
-    this.router.navigateByUrl("explore/restaurant-details");
-  }
-  constructor(fb: FormBuilder,private router: Router) {
-    
+  restList: Restaurant[] = [];
+isLoading=true;
+  constructor(
+    fb: FormBuilder,
+    private router: Router,
+    private restService: RestaurantService,
+    private restDetails: RestDetailsService
+  ) {
     this.radioOpenForm = fb.group({
       openNow: ['', Validators.required],
       time: ['', Validators.required],
-     maxCost: ['', Validators.required],
-     minCost:['', Validators.required],
-
+      maxCost: ['', Validators.required],
+      minCost: ['', Validators.required],
     });
-  
-    this.items=[{},{},{},{},{},{}];
-    
+
   }
+  ngOnInit(): void {
+    if (
+      sessionStorage.getItem('searchedRestOrType') &&
+      sessionStorage.getItem('searchedLocation')
+    ) {
+      this.fromSearch();
+    }
+  }
+  fromSearch() {
   
+    this.restService
+      .getRestaurantList('breakfast', 'udupi', 'karnataka', 'india')
+      .subscribe({
+        next: (value) => {
+          console.log(value['data']);
+          this.restList = value['data'];
+          this.isLoading=false;
+        },
+        error: (e) => alert(e.error.message),
+        complete: () => {},
+      });
+  }
+
+  goToRestaurant(restId: number) {
+    for (let restaurant of this.restList) {
+      if (restaurant.id === restId) {
+        this.restDetails.saveRestDetails(restaurant.id,
+          restaurant.name,
+          restaurant.food_types,
+          restaurant.rating,
+          restaurant.deliveryTimeInMins,
+          restaurant.min_order_cost,
+          restaurant.openTime,
+          restaurant.closeTime,
+        );
+      }
+    }
+    this.router.navigateByUrl('explore/restaurant-details');
+  }
 }

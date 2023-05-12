@@ -16,13 +16,13 @@
     <div class="restaurant-card-bg"> </div>
       <div class="restaurant-card">
         <img src="./assets/restaurant-details/restaurant-spoon.png" alt="spoon" />
-        <div class="restaurant-title">The Boutique Kitchen</div>
-        <div class="resto-sub-text">Indian, Pakistani, Kebab</div>
+        <div class="restaurant-title">{{details.name}}</div>
+        <div class="resto-sub-text">{{details.food_types}}</div>
         <div class="rating-distance">
-          <button id="btn-rating">4.3</button>
-          <div class="distance-flex-items">•&nbsp;63 mins&nbsp;</div>
-          <div class="distance-flex-items">•&nbsp;AED40 min order&nbsp;</div>
-          <div class="distance-flex-items">•&nbsp;11:00 AM - 10:00 PM</div>
+          <button id="btn-rating">{{details.rating}}</button>
+          <div class="distance-flex-items">•&nbsp;{{details.deliveryTimeInMins}} mins&nbsp;</div>
+          <div class="distance-flex-items">•&nbsp;AED{{details.min_order_cost}} min order&nbsp;</div>
+          <div class="distance-flex-items">•&nbsp;{{details.openTime}} - {{details.closeTime}}</div>
         </div>
         <div class="resto-sub-text">Delivery rating for last 5 orders</div>
         <div class="horizontal-line"></div>

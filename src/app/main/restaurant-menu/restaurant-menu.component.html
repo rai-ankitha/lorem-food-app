@@ -1,4 +1,4 @@
-<div class="menu-container">
+<div *ngIf="!isLoading" class="menu-container">
   <div class="search-food-card">
     <div class="search-box">
       <img
@@ -6,52 +6,103 @@
         alt="search"
         style="cursor: pointer"
       />
-      <input
+      <input [(ngModel)]="search" name="search"
         class="search-box-input"
         type="text"
-        placeholder="Search an Item"
+        placeholder="Search an Item"  (keydown)="searchMenu($event)"
       />
     </div>
-    <p id="side-headings">Recommended</p>
-    <div class="food-list">
-      <div class="food-card" *ngFor="let item of items">
-        <img class="food-img" src="./assets/search/food-img.png" alt="food" />
+   <div *ngIf="!isSearching">
+    <div *ngFor="let item of menu | keyvalue" class="food-list">
+      <div *ngIf="item.value.length
+      >0" >
+      <p id="side-headings">{{item.key}}({{item.value.length}})</p>
+      <div class="food-card" *ngFor="let data of item.value">
+
+        <img class="food-img" src="{{data.image}}" alt="food" />
         <div class="food-details">
           <div class="title-rating">
-            <div id="food-title">{{item.foodName}}</div>
-            <img *ngIf="item.isBestSeller"
+            <div id="food-title">{{data.name}}</div>
+            <img *ngIf="data.rating>4"
               class="bestseller-img"
               src="./assets/restaurant-details/restaurant-menu/bestseller-tag.png"
               alt="best seller"
             />
           </div>
-          <div class="sub-text">Rs&nbsp;{{item.foodCost}}</div>
+          <div class="sub-text">Rs&nbsp;{{data.price}}</div>
 
           <div class="title-rating">
             <div class="description-and-status">
               <div class="sub-text">
-                <span style="color: #a08234">{{item.status}}</span>
+                <span style="color: #a08234">Customizable</span>
               </div>
               <div class="sub-text">
-                {{item.description}}
+                {{data.description}}
               </div>
             </div>
             <div id="add-img">
               <img
                 src="./assets/restaurant-details/restaurant-menu/add-button.png"
                 alt="menu"
-                *ngIf="!item.isAdded"
+                *ngIf="!isAdded"
               />
               <img
                 src="./assets/restaurant-details/restaurant-menu/added-button.png"
                 alt="menu"
-                *ngIf="item.isAdded"
+                *ngIf="isAdded"
               />
             </div>
           </div>
         </div>
       </div>
     </div>
+    </div></div>
+
+    <div *ngIf="isSearching">
+      <div *ngFor="let item of menu | keyvalue" class="food-list">
+        <div *ngIf="item.value.length
+        >0" >
+        <div class="food-card" *ngFor="let data of item.value">
+  
+          <img class="food-img" src="{{data.image}}" alt="food" />
+          <div class="food-details">
+            <div class="title-rating">
+              <div id="food-title">{{data.name}}</div>
+              <img *ngIf="data.rating>4"
+                class="bestseller-img"
+                src="./assets/restaurant-details/restaurant-menu/bestseller-tag.png"
+                alt="best seller"
+              />
+            </div>
+            <div class="sub-text">Rs&nbsp;{{data.price}}</div>
+  
+            <div class="title-rating">
+              <div class="description-and-status">
+                <div class="sub-text">
+                  <span style="color: #a08234">Customizable</span>
+                </div>
+                <div class="sub-text">
+                  {{data.description}}
+                </div>
+              </div>
+              <div id="add-img">
+                <img
+                  src="./assets/restaurant-details/restaurant-menu/add-button.png"
+                  alt="menu"
+                  *ngIf="!isAdded"
+                />
+                <img
+                  src="./assets/restaurant-details/restaurant-menu/added-button.png"
+                  alt="menu"
+                  *ngIf="isAdded"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div></div>
+
   </div>
 
   <!-- My orders card -->

@@ -1,76 +1,83 @@
-import { Component } from '@angular/core';
-import { RestaurantDetails } from 'src/app/models/restaurant-list';
+import { Component, OnInit } from '@angular/core';
+import { RestaurantMenu } from 'src/app/models/restaurant-list';
+import { RestDetailsService } from 'src/app/services/rest-details.service';
+import { RestaurantService } from 'src/app/services/restaurant.service';
+
 
 @Component({
   selector: 'app-restaurant-menu',
   templateUrl: './restaurant-menu.component.html',
   styleUrls: ['./restaurant-menu.component.css'],
 })
-export class RestaurantMenuComponent {
-  items: RestaurantDetails[] = [];
-  constructor() {
-    this.items = [
-      {
-        foodName: 'Chili Cheese Meal',
-        foodCost: 27.0,
-        isBestSeller: true,
-        status: 'customizable',
-        description:
-          'Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.',
-        isVeg: true,
-        isAdded:true,
+export class RestaurantMenuComponent implements OnInit{
+  isLoading=true;
+  isSearching=false;
+  search:any;
+  restId:any;
+  searchedMenu?:RestaurantMenu
+  menu:Map<string,RestaurantMenu[]>=new Map([
+    ['SOUP', []],
+    ['APPETIZER', []],
+    ['MAINCOURSE', []],
+    ['GRAVY', []],
+    ['BEVERAGE', []],
+  ]);
+  
+  isAdded = false;
+
+  constructor(private restService: RestaurantService,) {
+    
+
+    }
+  ngOnInit(): void {
+    this.restId=Number(sessionStorage.getItem('restId'));
+    this.restService
+    .getRestaurantDetails(this.restId)
+    .subscribe({
+      next: (response) => {
+        // console.log('menu', this.menu);
+        
+        this.isLoading=false
+        console.log(response["data"]);
+        for(let item of response["data"]){
+          console.log('item', item);
+        this.menu.get(item["dishType"])?.push(item)
+        }
+        
       },
-      {
-        foodName: 'Chili Cheese Meal',
-        foodCost: 27.0,
-        isBestSeller: true,
-        status: 'customizable',
-        description:
-          'Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.',
-        isVeg: true,
-        isAdded:true,
-      },
-      {
-        foodName: 'Chili Cheese Meal',
-        foodCost: 27.0,
-        isBestSeller: true,
-        status: 'customizable',
-        description:
-          'Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.',
-        isVeg: true,
-        isAdded:true,
-      },
-      {
-        foodName: 'Chili Cheese Meal',
-        foodCost: 27.0,
-        isBestSeller: true,
-        status: 'customizable',
-        description:
-          'Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.',
-        isVeg: true,
-        isAdded:true,
-      },
-      {
-        foodName: 'Chili Cheese Meal',
-        foodCost: 27.0,
-        isBestSeller: true,
-        status: 'customizable',
-        description:
-          'Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.',
-        isVeg: true,
-        isAdded:true,
-      },
-      {
-        foodName: 'Chili Cheese Meal',
-        foodCost: 27.0,
-        isBestSeller: false,
-        status: 'customizable',
-        description:
-          'Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.',
-        isVeg: true,
-        isAdded:false,
-      },
-    ];
+      error: (e) => alert(e.error.message),
+      complete: () => {},
+    });
   }
-  isAdded = true;
-}
+  
+  searchMenu(e:any) {
+   
+    this.isSearching=true;
+    if(e.keyCode == 13){
+      this.restService.getSearchedMenu(this.restId, this.search).subscribe({
+        next: (response) => {  console.log(response["data"]);
+        this.isSearching=false;
+        for(let item of response["data"]){
+          console.log('item', item);
+        this.menu.get(item["dishType"])?.push(item)
+        }
+        },
+        error: (e) => {
+          alert(e.error.message);
+        
+          this.search = ''
+        },
+        complete: () => {
+          console.log()
+  
+        }
+      });
+  
+    }
+
+
+
+  }
+  }
+ 
+

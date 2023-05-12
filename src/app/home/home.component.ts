@@ -5,7 +5,7 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import { RestaurantService } from '../services/restaurant.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit{
   login:any;
   searchForm!:FormGroup
   // date1:string;
-constructor(private dialogRef:MatDialog,private datePipe: DatePipe,private router: Router,private fb: FormBuilder,private restService:RestaurantService){
+constructor(private dialogRef:MatDialog,private datePipe: DatePipe,private router: Router,private fb: FormBuilder){
 //   const date1=this.datePipe.transform(Date.now(),'Today,MMM d, y');
 this.createForm();
 }
@@ -48,23 +48,13 @@ openLoginPopup(){
 }
 goToDashboard(){
   if(this.searchForm.valid){
-    // this.restService.getRestaurantList("breakfast","udupi","karnataka","india").subscribe(
-
-    // {next: (value) => {console.log(value.message)
-    //   sessionStorage.setItem('secretCode',JSON.stringify(value.secretCode)as any);
-    //   },
-    //   error: (e) => alert(e.error.message),
-    //   complete: () => {
-    //     this.isVerify=true;
-    //     console.log("otp submitted!!")
-    //   }
-    // });
-
-  sessionStorage.setItem('searchedRestOrType', JSON.stringify(this.searchForm.get('search')!.value));
-  sessionStorage.setItem('searchedLocation', JSON.stringify(this.searchForm.get('location')!.value));
-  console.log( sessionStorage.getItem('searchedRestOrType'));
+   
+    sessionStorage.setItem('searchedRestOrType', JSON.stringify(this.searchForm.get('search')!.value));
+    sessionStorage.setItem('searchedLocation', JSON.stringify(this.searchForm.get('location')!.value));
+    console.log( sessionStorage.getItem('searchedRestOrType'));
+    this.router.navigateByUrl("/explore");
   
-  this.router.navigateByUrl("/explore");
+  
 }
 }
 }
