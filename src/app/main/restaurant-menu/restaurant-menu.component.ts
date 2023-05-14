@@ -72,9 +72,13 @@ export class RestaurantMenuComponent implements OnInit{
   
     }
 
-
-
   }
+
+  addTocart(data:any){
+this.isAdded=true;
+sessionStorage.setItem('cartArray', JSON.stringify(data));
+  }
+
   }
  
 

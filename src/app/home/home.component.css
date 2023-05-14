@@ -101,13 +101,12 @@ display: flex;
   color: #000;
   width: 85%;
   flex-grow: 1;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
   text-align: center;
 }
 .search-box-input ::placeholder{
-  text-align: center;
-}
+ padding-top:5px;}
 .location-date{
   display: flex;
   

@@ -41,7 +41,7 @@
               </div>
             </div>
             <div id="add-img">
-              <img
+              <img (click)="addTocart(data)"
                 src="./assets/restaurant-details/restaurant-menu/add-button.png"
                 alt="menu"
                 *ngIf="!isAdded"
@@ -87,7 +87,7 @@
                 </div>
               </div>
               <div id="add-img">
-                <img
+                <img (click)="addTocart(data)"
                   src="./assets/restaurant-details/restaurant-menu/add-button.png"
                   alt="menu"
                   *ngIf="!isAdded"

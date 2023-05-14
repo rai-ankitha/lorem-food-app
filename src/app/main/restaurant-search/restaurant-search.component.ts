@@ -14,6 +14,8 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 export class RestaurantSearchComponent implements OnInit {
   radioOpenForm: FormGroup;
   restList: Restaurant[] = [];
+  city:any;
+  foodType:any;
 isLoading=true;
   constructor(
     fb: FormBuilder,
@@ -34,13 +36,15 @@ isLoading=true;
       sessionStorage.getItem('searchedRestOrType') &&
       sessionStorage.getItem('searchedLocation')
     ) {
+this.foodType=JSON.parse(sessionStorage.getItem("searchedRestOrType")as any);
+this.city=JSON.parse(sessionStorage.getItem("searchedLocation")as any);
       this.fromSearch();
     }
   }
   fromSearch() {
   
     this.restService
-      .getRestaurantList('breakfast', 'udupi', 'karnataka', 'india')
+      .getRestaurantList(this.foodType, this.city, 'karnataka', 'india')
       .subscribe({
         next: (value) => {
           console.log(value['data']);
