@@ -7,18 +7,21 @@
     </div>
     <div class="horizontal-line"></div>
     <div class="item-list">
-      <div  class="item-card">
+      <div *ngFor="let data of cartArray"  class="item-card">
         <div class="item-title">
           <img
             class="veg-nonveg-icon"
             src="./assets/restaurant-details/restaurant-menu/veg-icon.png"
             alt=""
           />
-          <div>Chili Cheese Meal</div>
+          <div>data.name</div>
           <div class="add-remove-container">
-            <mat-icon>remove</mat-icon>
+            <div class="minus">-</div>
+
+           <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/minus.png" alt="minus">  -->
             <div>2</div>
-            <mat-icon>remove</mat-icon>
+            <div  class="add">+</div>
+           <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/add.png" alt="add">  -->
           </div>
         </div>
         <div class="item-title"><div>AED22.00</div>
@@ -26,6 +29,19 @@
       <div class="remove-icon">Remove</div>
       </div>
     </div>
+  <div class="to-pay-card">
+    <div>To Pay</div>
+    <div>AED85.76</div>
+
+  </div>
+  <div class="comments">
+    <label id="cooking-title" for="cookingInstructions">Cooking instructions?</label>
+    <input name="cookingInstructions" type="text" placeholder="Mention it here...">
+  </div>
+  <div class="btn-proceed">
+    Proceed to checkout >
+  </div>
+
  
 
 

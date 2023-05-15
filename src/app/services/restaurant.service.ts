@@ -25,7 +25,7 @@ export class RestaurantService {
         })
       );
   }
-  getRestaurantDetails(id: number) {
+  getRestaurantMenu(id: number) {
     return this.http
       .get(environment.url + 'api/restaurant/' + id + '/menu')
       .pipe(

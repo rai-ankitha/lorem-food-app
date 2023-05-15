@@ -88,21 +88,27 @@
   margin-top: 1%;
 
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
-
+#search-img{
+  padding: 10px;
+  height: 25px;
+  width: 18px;
+text-align: center;
+}
 .search-box {
-
+  display: flex;
   background-color: #FFFFFF;
   width: 50%;
   flex-grow: 1;
   border-radius: 6px;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14);
   font-size: 16px;
 }
 
 .search-box-input {
+  text-align: center;
   all: unset;
   color: #000;
   width: 85%;

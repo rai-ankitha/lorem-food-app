@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantMenu } from 'src/app/models/restaurant-list';
+import { CartDetailsService } from 'src/app/services/cart-details.service';
 
 @Component({
   selector: 'app-my-orders',
@@ -6,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-orders.component.css']
 })
 export class MyOrdersComponent implements OnInit{
-  cartArray:any;
+  cartArray:RestaurantMenu[]=[];
+  constructor(private cartDetails:CartDetailsService){}
   ngOnInit(): void {
   
   }
   displaycart(){
-    this.cartArray=JSON.parse(sessionStorage.getItem('cartArray') as any)
-    console.log(`Cart array is ${this.cartArray}`)
+    this.cartArray=this.cartDetails.myOrderList;
+    // console.log(`Cart array is ${this.cartArray}`)
   }
 }
