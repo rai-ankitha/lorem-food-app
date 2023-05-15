@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiResponse, RestaurantMenu } from 'src/app/models/restaurant-list';
 import { CartDetailsService } from 'src/app/services/cart-details.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -27,6 +28,7 @@ export class RestaurantMenuComponent implements OnInit {
   isAdded = false;
 
   constructor(
+    private router:Router,
     private restService: RestaurantService,
     private cartService: CartService,
     private cartDetails: CartDetailsService
@@ -72,30 +74,37 @@ export class RestaurantMenuComponent implements OnInit {
   }
 
   addTocart(data: RestaurantMenu) {
-    this.isAdded = true;
-    this.cartService.addToCart(data.id).subscribe({
-      next: (response: ApiResponse) => {
-        // alert(response.message);
-        this.cartDetails.saveMyOrderDetails(
-          data.id,
-          data.name,
-          data.price,
-          data.dishType,
-          data.rating,
-          data.description,
-          data.veg,
-          data.breakfast,
-          data.image
-        );
-      },
-      error: (e) => {
-        console.log(e)
-        // alert(e.error.message);
-      },
-      complete: () => {
+    if(sessionStorage.getItem('token')){
+      this.isAdded = true;
+      this.cartService.addToCart(data.id).subscribe({
+        next: (response: ApiResponse) => {
+          // alert(response.message);
+          this.cartDetails.saveMyOrderDetails(
+            data.id,
+            data.name,
+            data.price,
+            data.dishType,
+            data.rating,
+            data.description,
+            data.veg,
+            data.breakfast,
+            data.image
+          );
+        },
+        error: (e) => {
+          console.log(e)
+          // alert(e.error.message);
+        },
+        complete: () => {
+  
+        },
+      });
+    }
+    else{
+      alert("Please Signin inorder to place order");
+      this.router.navigateByUrl("/home")
+    }
 
-      },
-    });
     // sessionStorage.setItem('cartArray', JSON.stringify(data));
   }
 }
