@@ -45,7 +45,7 @@
               </div>
             </div>
             <div id="add-img">
-              <img
+              <img (click)="addTocart(data)"
                 src="./assets/restaurant-details/restaurant-menu/add-button.png"
                 alt="menu"
                 *ngIf="!isAdded"
@@ -64,7 +64,7 @@
 
   
       <div  *ngIf="isSearching" class="food-list">
-        <div class="food-card" *ngFor="let data of searchedMenu">
+        <div class="food-card" *ngFor="let data of searchedMenu;let i = index">
   <div class="img-container"> <img class="food-img" src="{{data.image}}" alt="food" />
     <img *ngIf="data.veg" class="veg-icon" src="./assets/restaurant-details/restaurant-menu/Group6.png" alt="">
     <img *ngIf="!data.veg" class="veg-icon" src="./assets/restaurant-details/restaurant-menu/Group_8.png" alt="non-veg">
@@ -91,6 +91,7 @@
                 </div>
               </div>
               <div id="add-img">
+                {{addIcon(data.id)}}
                 <img (click)="addTocart(data)"
                   src="./assets/restaurant-details/restaurant-menu/add-button.png"
                   alt="menu"
@@ -112,35 +113,9 @@
   </div>
 
   <!-- My orders card -->
-  <div class="my-orders-card">
+  <div *ngIf="!isCartLoading" class="my-orders-card">
     <app-my-orders></app-my-orders>
   </div>
  
-  <!-- <div class="my-orders-card">
-    <div class="myOrders-flex">
-      <div id="myorder-text">My Order</div>
-      <span>Clear cart</span>
-    </div>
-    <div class="horizontal-line"></div>
-    <div class="item-list">
-      <div class="item-card">
-        <div class="item-title">
-          <img
-            class="veg-nonveg-icon"
-            src="./assets/restaurant-details/restaurant-menu/veg-icon.png"
-            alt=""
-          />
-          <div>Chili Cheese Meal</div>
-          <div class="add-remove-container">
-            <mat-icon>remove</mat-icon>
-            <div>2</div>
-            <mat-icon>add</mat-icon>
-          </div>
-        </div>
-        <div class="item-title"><div>AED22.00</div>
-      <div>AED44.00</div></div>
-      <div class="remove-icon">Remove</div>
-      </div>
-    </div>
-  </div> -->
+ 
 </div>

@@ -13,6 +13,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class RestaurantMenuComponent implements OnInit {
   isLoading = true;
+  isCartLoading=true;
   isSearching = false;
   search: any;
   restId: any;
@@ -72,14 +73,25 @@ export class RestaurantMenuComponent implements OnInit {
       });
     }
   }
-
+addIcon(id:any){
+for(let entry of this.searchedMenu){
+  if(entry.id==id){
+    this.isAdded=false;
+  }
+  else{
+    this.isAdded=true;
+  }
+}
+}
   addTocart(data: RestaurantMenu) {
     if(sessionStorage.getItem('token')){
-      this.isAdded = true;
+     
       console.log(`Added to cart ${data.name}`)
       this.cartService.addToCart(data.id).subscribe({
         next: (response: ApiResponse) => {
           // alert(response.message);
+          this.isCartLoading=false;
+          this.isAdded = true;
           this.cartDetails.saveMyOrderDetails(
             data.id,
             data.name,
@@ -97,7 +109,7 @@ export class RestaurantMenuComponent implements OnInit {
           // alert(e.error.message);
         },
         complete: () => {
-          this.isAdded = false;
+          // this.isAdded = false;
         },
       });
     }

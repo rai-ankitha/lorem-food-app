@@ -1,47 +1,43 @@
+<div class="myOrders-flex">
+  {{displaycart()}}
 
-    <div class="myOrders-flex">
-      {{displaycart()}}
+  <div id="myorder-text">My Order</div>
+  <span>Clear cart</span>
+</div>
+<div class="horizontal-line"></div>
+<div class="item-list">
+  <div *ngFor="let data of cartArray" class="item-card">
+    <div class="item-title">
 
-      <div id="myorder-text">My Order</div>
-      <span>Clear cart</span>
-    </div>
-    <div class="horizontal-line"></div>
-    <div class="item-list">
-      <div *ngFor="let data of cartArray"  class="item-card">
-        <div class="item-title">
-          <img
-            class="veg-nonveg-icon"
-            src="./assets/restaurant-details/restaurant-menu/veg-icon.png"
-            alt=""
-          />
-          <div>{{data.name}}</div>
-          <div class="add-remove-container">
-            <div class="minus">-</div>
+      <img *ngIf="data.veg" class="veg-nonveg-icon" src="./assets/restaurant-details/restaurant-menu/Group6.png" alt="">
+      <img *ngIf="!data.veg" class="veg-nonveg-icon" src="./assets/restaurant-details/restaurant-menu/Group_8.png"
+        alt="non-veg">
+      <div>{{data.name}}</div>
+      <div class="add-remove-container">
+        <div class="minus">-</div>
 
-           <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/minus.png" alt="minus">  -->
-            <div>2</div>
-            <div  class="add">+</div>
-           <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/add.png" alt="add">  -->
-          </div>
-        </div>
-        <div class="item-title"><div>AED22.00</div>
-      <div>AED44.00</div></div>
-      <div class="remove-icon">Remove</div>
+        <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/minus.png" alt="minus">  -->
+        <div>1</div>
+        <div class="add">+</div>
+        <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/add.png" alt="add">  -->
       </div>
     </div>
-  <div class="to-pay-card">
-    <div>To Pay</div>
-    <div>AED85.76</div>
-
+    <div class="item-title">
+      <div>AED{{data.price}}</div>
+      <div>AED{{data.price}}</div>
+    </div>
+    <div class="remove-icon">Remove</div>
   </div>
-  <div class="comments">
-    <label id="cooking-title" for="cookingInstructions">Cooking instructions?</label>
-    <input name="cookingInstructions" type="text" placeholder="Mention it here...">
-  </div>
-  <div class="btn-proceed">
-    Proceed to checkout >
-  </div>
+</div>
+<div class="to-pay-card">
+  <div>To Pay</div>
+  <div>AED85.76</div>
 
- 
-
-
+</div>
+<div class="comments">
+  <label id="cooking-title" for="cookingInstructions">Cooking instructions?</label>
+  <input name="cookingInstructions" type="text" placeholder="Mention it here...">
+</div>
+<div class="btn-proceed">
+  Proceed to checkout >
+</div>

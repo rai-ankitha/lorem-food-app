@@ -10,6 +10,7 @@ import { CartDetailsService } from 'src/app/services/cart-details.service';
 })
 export class MyOrdersComponent implements OnInit{
   cartArray:RestaurantMenu[]=[];
+  isLoading=true;
   constructor(private cartDetails:CartDetailsService){}
   ngOnInit(): void {
   
