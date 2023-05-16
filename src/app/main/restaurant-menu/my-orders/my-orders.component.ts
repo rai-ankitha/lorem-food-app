@@ -17,14 +17,16 @@ export class MyOrdersComponent implements OnInit{
   
   }
   displaycart(){
+    
     this.cartArray =this.cartDetails.myOrderList;
     // console.log(`Cart array is ${this.cartArray}`)
   }
+  isCartEmpty=false;
   clearCart(){
     this.cartService.deleteEntireCart().subscribe({
       next: (response: ApiResponse) => {
         console.log(response.message);
-        
+        this.isCartEmpty=true;
         this.cartDetails.deleteAll();
       }
       ,
