@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RestaurantMenu } from 'src/app/models/restaurant-list';
+import { ApiResponse, RestaurantMenu } from 'src/app/models/restaurant-list';
 import { CartDetailsService } from 'src/app/services/cart-details.service';
+import { CartService } from 'src/app/services/cart.service';
 
 
 @Component({
@@ -11,12 +12,26 @@ import { CartDetailsService } from 'src/app/services/cart-details.service';
 export class MyOrdersComponent implements OnInit{
   cartArray:RestaurantMenu[]=[];
   isLoading=true;
-  constructor(private cartDetails:CartDetailsService){}
+  constructor(private cartDetails:CartDetailsService,private cartService:CartService){}
   ngOnInit(): void {
   
   }
   displaycart(){
     this.cartArray =this.cartDetails.myOrderList;
     // console.log(`Cart array is ${this.cartArray}`)
+  }
+  clearCart(){
+    this.cartService.deleteEntireCart().subscribe({
+      next: (response: ApiResponse) => {
+        console.log(response.message);
+        
+        this.cartDetails.deleteAll();
+      }
+      ,
+        error: (e) => {
+          console.log(e)
+          // alert(e.error.message);
+        },
+    })
   }
 }

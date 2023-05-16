@@ -58,4 +58,8 @@ myOrderList:RestaurantMenu[]=[];
     }
   
   }
+  deleteAll(){
+    this.myOrderList=[];
+  }
+  
 }

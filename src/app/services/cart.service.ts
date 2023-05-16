@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../models/restaurant-list';
 import { UserService } from '../user.service';
+import { RestDetailsService } from './rest-details.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor(private http: HttpClient,private userService:UserService) { }
+  constructor(private http: HttpClient,private userService:UserService, private restDetails:RestDetailsService) { }
   
   addToCart( menuItemId: any) {
       
@@ -25,5 +26,35 @@ export class CartService {
 
     return this.http.post<ApiResponse>(environment.url +'api/cart/add-item'
       , body, { headers: headers_object });
+  }
+  deleteCartItem( menuItemId: any) {
+      
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    let email=this.userService.emailId
+
+    const body = {
+      "emailId": email,
+      "menuItemId": menuItemId,
+    }
+    console.log(body)
+
+    return this.http.post<ApiResponse>(environment.url +'api/cart/delete-item'
+      , body, { headers: headers_object });
+  }
+  deleteEntireCart() {
+      
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    let email=this.userService.emailId
+ let restId=this.restDetails.restaurantDetails.id;
+    const body = {
+      "emailId": email,
+      "restId": restId,
+    }
+    console.log(body)
+
+    return this.http.delete<ApiResponse>(environment.url +'api/cart/clear-cart'
+      , body,{ headers: headers_object});
   }
 }

@@ -91,7 +91,7 @@ for(let entry of this.searchedMenu){
         next: (response: ApiResponse) => {
           // alert(response.message);
           this.isCartLoading=false;
-          this.isAdded = true;
+          this.isAdded= true;
           this.cartDetails.saveMyOrderDetails(
             data.id,
             data.name,
