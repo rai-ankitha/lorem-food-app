@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestaurantMenu } from 'src/app/models/restaurant-list';
 import { CartDetailsService } from 'src/app/services/cart-details.service';
 
+
 @Component({
   selector: 'app-my-orders',
   templateUrl: './my-orders.component.html',
@@ -14,7 +15,7 @@ export class MyOrdersComponent implements OnInit{
   
   }
   displaycart(){
-    this.cartArray=this.cartDetails.myOrderList;
+    this.cartArray =this.cartDetails.myOrderList;
     // console.log(`Cart array is ${this.cartArray}`)
   }
 }

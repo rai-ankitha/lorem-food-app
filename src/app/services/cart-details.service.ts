@@ -1,12 +1,17 @@
-import { Injectable } from '@angular/core';
+import { DoCheck, Injectable } from '@angular/core';
 import { RestaurantMenu } from '../models/restaurant-list';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartDetailsService {
+export class CartDetailsService implements DoCheck {
 myOrderList:RestaurantMenu[]=[];
+
   constructor() { }
+  ngDoCheck(): void {
+    console.log(this.myOrderList);
+    
+  }
   myOrderDetails:RestaurantMenu={
     id: '',
     name: '',
@@ -18,6 +23,7 @@ myOrderList:RestaurantMenu[]=[];
     breakfast: false,
     image: ''
   }
+  
   saveMyOrderDetails(
     id: any,
     name: any,
@@ -40,6 +46,16 @@ myOrderList:RestaurantMenu[]=[];
     this.myOrderDetails!.veg = veg;
     this.myOrderDetails!.breakfast = breakfast;
     this.myOrderDetails!.image = image;
-    this.myOrderList.push(this.myOrderDetails);
+    console.log(`cart details ${this.myOrderDetails.name}`)
+    // var itemCopy = angular.copy(    this.myOrderDetails
+    //   );
+    // this.myOrderList.push(itemCopy);
+    // this.myOrderList.splice(this.myOrderList.length,0,this.myOrderDetails);
+   const temp = {...this.myOrderDetails};
+    this.myOrderList.push(temp);
+    for(let item of this.myOrderList){
+      console.log(`Pushed cart ${item.name}`)
+    }
+  
   }
 }

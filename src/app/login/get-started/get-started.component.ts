@@ -44,7 +44,6 @@ isLogin(){
       
       error: (e) => alert(e.error.message),
       complete: () => {
-        alert("Login successful");
         sessionStorage.setItem('email', JSON.stringify(this.loginForm.get('loginEmail')?.value)as any );
        
     console.log("login submitted!!")

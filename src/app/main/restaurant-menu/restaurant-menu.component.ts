@@ -76,6 +76,7 @@ export class RestaurantMenuComponent implements OnInit {
   addTocart(data: RestaurantMenu) {
     if(sessionStorage.getItem('token')){
       this.isAdded = true;
+      console.log(`Added to cart ${data.name}`)
       this.cartService.addToCart(data.id).subscribe({
         next: (response: ApiResponse) => {
           // alert(response.message);
@@ -96,7 +97,7 @@ export class RestaurantMenuComponent implements OnInit {
           // alert(e.error.message);
         },
         complete: () => {
-  
+          this.isAdded = false;
         },
       });
     }
