@@ -5,6 +5,7 @@ import { MainComponent } from './main/main.component';
 import { RestaurantSearchComponent } from './main/restaurant-search/restaurant-search.component';
 import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.component';
 import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant-details.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,14 +19,19 @@ const routes: Routes = [
       {
         path: 'restaurant-details',
         component: RestaurantDetailsComponent,
-        children: [
-          { path: 'restaurant-menu', component: RestaurantMenuComponent },
-          { path: '', redirectTo: 'restaurant-menu', pathMatch: 'full' },
-        ],
+        // children: [
+        //   { path: 'restaurant-menu', component: RestaurantMenuComponent },
+        //   { path: '', redirectTo: 'restaurant-menu', pathMatch: 'full' },
+        // ],
+      },
+      {
+        path:'cart',
+        component:CartComponent
       },
       { path: '', redirectTo: 'restaurant-list', pathMatch: 'full' },
     ],
   },
+  
 ];
 
 @NgModule({

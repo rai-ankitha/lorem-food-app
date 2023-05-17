@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ search:any
 location:any;
 userName:string='';
 isUserPresent=false;
-constructor(private userService:UserService){
+constructor(private userService:UserService,private router:Router){
  
 }
   ngOnInit(): void {
@@ -26,6 +27,10 @@ constructor(private userService:UserService){
   else{
     this.isUserPresent=false
   }
+}
+
+goToCart(){
+this.router.navigateByUrl('explore/cart')
 }
   }
 

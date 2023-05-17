@@ -1,17 +1,28 @@
 import { DoCheck, Injectable } from '@angular/core';
 import { RestaurantMenu } from '../models/restaurant-list';
+import { CartService } from './cart.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartDetailsService implements DoCheck {
+export class CartDetailsService {
 myOrderList:RestaurantMenu[]=[];
+private orderDetails: RestaurantMenu | null = null;
+orderDetailsData = new Subject<RestaurantMenu>();
+  constructor(private cartService:CartService) { }
+ 
+getOrderDetails(){
+  
+    return this.cartService.getOrderDetails().subscribe({
+      next:(value:any)=>{
+        this.orderDetails=value;
+        this.orderDetailsData.next(value);
+      }
+    })
+  
+}
 
-  constructor() { }
-  ngDoCheck(): void {
-    console.log(this.myOrderList);
-    
-  }
   myOrderDetails:RestaurantMenu={
     id: '',
     name: '',
@@ -21,7 +32,8 @@ myOrderList:RestaurantMenu[]=[];
     description: '',
     veg: false,
     breakfast: false,
-    image: ''
+    image: '',
+    isAdded:false
   }
   
   saveMyOrderDetails(
@@ -33,7 +45,8 @@ myOrderList:RestaurantMenu[]=[];
     description: any,
     veg: any,
     breakfast: any,
-    image:any
+    image:any,
+    isAdded:any
   ) {
     this.myOrderDetails!.id = id;
     this.myOrderDetails!.name = name;
@@ -46,6 +59,7 @@ myOrderList:RestaurantMenu[]=[];
     this.myOrderDetails!.veg = veg;
     this.myOrderDetails!.breakfast = breakfast;
     this.myOrderDetails!.image = image;
+    this.myOrderDetails!.isAdded=isAdded;
     console.log(`cart details ${this.myOrderDetails.name}`)
     // var itemCopy = angular.copy(    this.myOrderDetails
     //   );

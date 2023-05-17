@@ -14,11 +14,11 @@
   width: 50%;
 }
 .list-items {
-  padding-right: 1%;
+  margin-right: 10px;
   color: #6f6f6f;
 }
 a {
-  padding-right: 1%;
+ 
   text-decoration: none;
 }
 /* restaurant card */

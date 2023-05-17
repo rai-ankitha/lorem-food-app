@@ -11,7 +11,7 @@
       </div>
       <div class="cart-class">
         
-        <img id="cart-image" src="./assets/home/icn_cart.png" alt="cart" />
+        <img (click)="goToCart()" id="cart-image" src="./assets/home/icn_cart.png" alt="cart" />
         <div>CART</div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         alt="pin"
         style="cursor: pointer"
       />
-      <input class="location-box-input" type="text" value={{location}} />
+      <input class="location-box-input" type="text" value={{location}} [readonly]="true"/>
       <img class="location-img"
         src="./assets/home/icn_gps_indicator.png"
         alt="geolocator"
@@ -35,7 +35,7 @@
     </div>
     <div class="search-box">
       
-      <input class="search-box-input"  type="text" value={{search}} />
+      <input class="search-box-input"  type="text" value={{search}} [readonly]="true"/>
       <img id="search-img"
         src="./assets/home/icn_search_home.png"
         alt="search"

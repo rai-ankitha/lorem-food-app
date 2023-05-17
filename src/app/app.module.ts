@@ -33,6 +33,7 @@ import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.
 import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant-details.component';
 import { MyOrdersComponent } from './main/restaurant-menu/my-orders/my-orders.component';
 import {HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import {HttpClientModule } from '@angular/common/http';
     RestaurantMenuComponent,
     RestaurantDetailsComponent,
     MyOrdersComponent,
+    CartComponent,
    
 
   ],

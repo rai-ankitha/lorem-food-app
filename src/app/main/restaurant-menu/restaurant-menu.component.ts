@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiResponse, RestaurantMenu } from 'src/app/models/restaurant-list';
 import { CartDetailsService } from 'src/app/services/cart-details.service';
@@ -12,6 +12,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
   styleUrls: ['./restaurant-menu.component.css'],
 })
 export class RestaurantMenuComponent implements OnInit {
+  @Input() restMenuList:any;
   isLoading = true;
   isCartLoading=true;
   isSearching = false;
@@ -26,7 +27,7 @@ export class RestaurantMenuComponent implements OnInit {
     ['BEVERAGE', []],
   ]);
 
-  isAdded = false;
+
 
   constructor(
     private router:Router,
@@ -36,20 +37,29 @@ export class RestaurantMenuComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.restId = Number(sessionStorage.getItem('restId'));
-    this.restService.getRestaurantMenu(this.restId).subscribe({
-      next: (response) => {
-        // console.log('menu', this.menu);
+    for (let item of this.restMenuList) {
+            console.log('item', item);
+            this.menu.get(item['dishType'])?.push(item);
+            this.isLoading=false;
+          }
 
-        this.isLoading = false;
-        console.log(response['data']);
-        for (let item of response['data']) {
-          console.log('item', item);
-          this.menu.get(item['dishType'])?.push(item);
-        }
-      },
-      error: (e) => alert(e.error.message),
-      complete: () => {},
-    });
+    // this.restId = Number(sessionStorage.getItem('restId'));
+    // this.restService.getRestaurantMenu(this.restId).subscribe({
+    //   next: (response) => {
+    //     // console.log('menu', this.menu);
+
+    //     this.isLoading = false;
+    //     console.log(response['menu']['restaurant']);
+      
+        
+    //     for (let item of response['menu']['data']) {
+    //       console.log('item', item);
+    //       this.menu.get(item['dishType'])?.push(item);
+    //     }
+    //   },
+    //   error: (e) => alert(e.error.message),
+    //   complete: () => {},
+    // });
   }
 
   searchMenu(e: any) {
@@ -59,6 +69,12 @@ export class RestaurantMenuComponent implements OnInit {
           console.log(response['data']);
           this.isSearching = true;
           this.searchedMenu = response['data'];
+       for(let i of this.searchedMenu){
+        for(let j of this.cartDetails.myOrderList){
+         i.isAdded=j.isAdded
+        }
+  
+       }
         },
         error: (e) => {
           alert(e.error.message);
@@ -73,25 +89,19 @@ export class RestaurantMenuComponent implements OnInit {
       });
     }
   }
-addIcon(id:any){
-for(let entry of this.searchedMenu){
-  if(entry.id==id){
-    this.isAdded=false;
-  }
-  else{
-    this.isAdded=true;
-  }
-}
-}
-  addTocart(data: RestaurantMenu) {
+
+  addTocart(data: RestaurantMenu,index:any) {
     if(sessionStorage.getItem('token')){
      
       console.log(`Added to cart ${data.name}`)
       this.cartService.addToCart(data.id).subscribe({
         next: (response: ApiResponse) => {
+          console.log(response);
+          
+          data.isAdded=true;
           // alert(response.message);
           this.isCartLoading=false;
-          this.isAdded= true;
+  
           this.cartDetails.saveMyOrderDetails(
             data.id,
             data.name,
@@ -101,7 +111,8 @@ for(let entry of this.searchedMenu){
             data.description,
             data.veg,
             data.breakfast,
-            data.image
+            data.image,
+            data.isAdded
           );
         },
         error: (e) => {
@@ -109,6 +120,7 @@ for(let entry of this.searchedMenu){
           // alert(e.error.message);
         },
         complete: () => {
+ 
           // this.isAdded = false;
         },
       });

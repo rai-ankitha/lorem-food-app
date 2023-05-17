@@ -2,16 +2,16 @@
   <div class="nav-link">
     <div class="navbar">
       <a routerLink="/home"><div class="list-items">Home</div></a>
-      <div class="list-items">></div>
-      <div class="list-items">UDUPI</div>
-      <div class="list-items">></div>
-      <a routerLink="/dashboard"><div class="list-items">Explore</div></a>
-      <div class="list-items">></div>
-      <div class="list-items">Breakfasts</div>
+      <div class="list-items"><span style="color: orange;">></span></div>
+      <div class="list-items">{{city |titlecase}}</div>
+      <div class="list-items"><span style="color: orange;">></span></div>
+      <a routerLink="/explore"><div class="list-items">Explore</div></a>
+      <div class="list-items"><span style="color: orange;">></span></div>
+      <div class="list-items">{{foodType|titlecase}}</div>
     </div>
   </div>
   <div class="content">
-    <div id="content-heading">Breakfast in {{city | titlecase}}</div>
+    <div id="content-heading">{{foodType |titlecase}} in {{city | titlecase}}</div>
     <div class="sorting">
       <p class="sorting-text">
         List by:<span style="color: #fca100"> All</span>

@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
+import { Restaurant } from '../models/restaurant-list';
 @Injectable({
   providedIn: 'root',
 })
 export class RestaurantService {
+ 
   constructor(private http: HttpClient) {}
   getRestaurantList(search: any, city: any, state: any, country: any) {
     let params = new HttpParams();
@@ -44,4 +45,5 @@ export class RestaurantService {
         })
       );
   }
+  
 }

@@ -1,15 +1,16 @@
-<div class="container">
+<div *ngIf="!isLoading" class="container">
     <div class="nav-link">
       <div class="navbar">
         <a routerLink="/home"><div class="list-items">Home</div></a>
-        <div class="list-items">></div>
-        <div class="list-items">UDUPI</div>
-        <div class="list-items">></div>
-        <a routerLink="/dashboard"><div class="list-items">Explore</div></a>
-        <div class="list-items">></div>
-        <div class="list-items">Breakfasts</div>
-        <div class="list-items">></div>
-        <div class="list-items">The Boutique Kitchen</div>
+        <div class="list-items"><span style="color: orange;">></span></div>
+        <div class="list-items">{{city |titlecase}}</div>
+        <div class="list-items"><span style="color: orange;">></span></div>
+        <a routerLink="/explore"><div class="list-items">Explore</div></a>
+        <div class="list-items"><span style="color: orange;">></span></div>
+        <div class="list-items">{{foodType|titlecase}}</div>
+        <div class="list-items"><span style="color: orange;">></span></div>
+        <div class="list-items">{{details.name}}</div>
+       
       </div>
     </div>
     <!-- restaurant card -->
@@ -43,7 +44,7 @@
       </div>
 
       <!-- Restaurant-menu -->
-     <router-outlet></router-outlet>
+     <app-restaurant-menu [restMenuList]="hotelDetails"></app-restaurant-menu>
     </div>
    
   

@@ -40,6 +40,7 @@ export class UserDetailsComponent {
         error: (e) => alert(e.error.message),
         complete: () => {
           console.log(" user details submitted!!")
+          sessionStorage.setItem('email',JSON.stringify(this.userService.emailId))
           this.isSubmit=true;
         }
       });

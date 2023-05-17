@@ -27,7 +27,8 @@ export interface RestaurantMenu {
      description: string,
      veg: boolean,
      breakfast:boolean
-     image: string
+     image: string,
+     isAdded:boolean
  
 }
 export interface ApiResponse {

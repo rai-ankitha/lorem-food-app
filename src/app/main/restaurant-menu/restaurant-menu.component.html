@@ -17,7 +17,7 @@
       <div *ngIf="item.value.length
       >0" >
       <p id="side-headings">{{item.key}}({{item.value.length}})</p>
-      <div class="food-card" *ngFor="let data of item.value">
+      <div class="food-card" *ngFor="let data of item.value; let i=index">
 <div class="img-container">
   <img class="food-img" src="{{data.image}}" alt="food" />
   <img *ngIf="data.veg" class="veg-icon" src="./assets/restaurant-details/restaurant-menu/Group6.png" alt="">
@@ -45,15 +45,15 @@
               </div>
             </div>
             <div id="add-img">
-              <img (click)="addTocart(data)"
+              <img (click)="addTocart(data,i)"
                 src="./assets/restaurant-details/restaurant-menu/add-button.png"
                 alt="menu"
-                *ngIf="!isAdded"
+                *ngIf="!data.isAdded"
               />
               <img
                 src="./assets/restaurant-details/restaurant-menu/added-button.png"
                 alt="menu"
-                *ngIf="isAdded"
+                *ngIf="data.isAdded"
               />
             </div>
           </div>
@@ -91,16 +91,16 @@
                 </div>
               </div>
               <div id="add-img">
-                {{addIcon(data.id)}}
-                <img (click)="addTocart(data)"
+               
+                <img (click)="addTocart(data,i)"
                   src="./assets/restaurant-details/restaurant-menu/add-button.png"
                   alt="menu"
-                  *ngIf="!isAdded"
+                  *ngIf="!data.isAdded"
                 />
                 <img
                   src="./assets/restaurant-details/restaurant-menu/added-button.png"
                   alt="menu"
-                  *ngIf="isAdded"
+                  *ngIf="data.isAdded"
                 />
               </div>
             </div>
