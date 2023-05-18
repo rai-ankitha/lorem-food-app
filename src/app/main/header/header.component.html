@@ -2,17 +2,23 @@
   <div class="navbar">
     <div class="lorem-logo">LOREM</div>
     <div  *ngIf="isUserPresent" class="nav-list">
-
-      <div class="list-items">{{userName}}
+<div class="profile-avatar">
+  <img id="profile-icon" src="./assets/header/Profile_placeholder.svg" alt="profile">
+</div>
+      <div class="list-items">&nbsp;{{userName}}
       </div>
       <div id="vertical-line"></div>
       <div  class="list-items">
         Logout
       </div>
       <div class="cart-class">
-        
-        <img (click)="goToCart()" id="cart-image" src="./assets/home/icn_cart.png" alt="cart" />
-        <div>CART</div>
+        <div class="cart-bag1"></div>
+
+            <div (click)="goToCart()" class="cart-bag2">
+                <p>2</p>
+            </div>
+      
+        <div id="cart-text">CART</div>
       </div>
     </div>
   </div>

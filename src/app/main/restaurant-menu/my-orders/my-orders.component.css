@@ -13,10 +13,12 @@
   flex-direction: row;
   margin: 20px 20px 0px 20px;
 }
-.myOrders-flex span {
+#clear-text{
   text-align: center;
   color: #f57c00;
+  cursor: pointer;
 }
+
 #myorder-text {
   color: #000000;
   font-family: "Open Sans";
@@ -39,16 +41,20 @@
 }
 .item-title {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding-bottom: 10px;
+  
 }
 .veg-nonveg-icon {
   width: 14px;
   height: 14px;
+  margin-right: 10px;
 }
-
+#item-name{
+  flex-grow: 1;
+}
 .add-remove-container {
-
+  align-self:end;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -60,18 +66,24 @@
   text-align: start;
 margin-left: 10px;
 margin-right: 20px;
+cursor: pointer;
 }
 .add{
   text-align: end;
   margin-left: 20px;
    margin-right: 10px; 
-    
+   cursor: pointer;
     color: #feb456;
 }
 
 .remove-icon {
+  margin-top: 10px;
   align-self: flex-end;
   color: #ed1b2e;
+}
+.cost-flex{
+  display: flex;
+  justify-content: space-between;
 }
 .to-pay-card {
   display: flex;
@@ -126,6 +138,6 @@ input::placeholder {
     box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
 }
 .cart-empty{
-  margin: 20px;
+  margin: 100px;
   text-align: center;
 }

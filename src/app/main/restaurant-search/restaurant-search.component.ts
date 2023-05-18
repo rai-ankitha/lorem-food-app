@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
+
 import { Restaurant } from 'src/app/models/restaurant-list';
 import { RestDetailsService } from 'src/app/services/rest-details.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
@@ -47,7 +47,7 @@ export class RestaurantSearchComponent implements OnInit {
       .getRestaurantList(this.foodType, this.city, 'karnataka', 'india')
       .subscribe({
         next: (value) => {
-          console.log(value['data']);
+         
           this.restList = value['data'];
           this.isLoading = false;
         },

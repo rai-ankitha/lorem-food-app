@@ -10,18 +10,42 @@ export class CartDetailsService {
 myOrderList:RestaurantMenu[]=[];
 private orderDetails: RestaurantMenu | null = null;
 orderDetailsData = new Subject<RestaurantMenu>();
+
+private restOrder: RestaurantMenu | null = null;
+restOrderData = new Subject<RestaurantMenu[]>();
   constructor(private cartService:CartService) { }
  
 getOrderDetails(){
   
-    return this.cartService.getOrderDetails().subscribe({
+    this.cartService.getOrderDetails().subscribe({
       next:(value:any)=>{
+        console.log(`from data services ${value}`);
+        
         this.orderDetails=value;
+        
         this.orderDetailsData.next(value);
+      },
+      error:(e)=>{
+      console.log(e);
+      
       }
     })
   
 }
+
+getRestOrder(restId:any){
+  
+  this.cartService.getRestaurantOrder(restId).subscribe({
+    next:(value:any)=>{
+      console.log(`from rest services ${value}`);
+      
+      this.restOrder=value["menu"]["data"];
+      this.restOrderData.next(value["menu"]["data"]);
+    }
+  })
+
+}
+
 
   myOrderDetails:RestaurantMenu={
     id: '',

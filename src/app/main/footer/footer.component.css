@@ -9,9 +9,10 @@
   .container3{
     background: #ffffff;
     padding-left:24%;
-    padding-top: 1%;
-    padding-bottom: 2%;
+    margin-top: 10px; 
+    padding-bottom: 2%; 
     padding-right: 22%;
+    height: fit-content;
   }
   .content3-flex1{
     padding: 0;

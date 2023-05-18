@@ -37,3 +37,5 @@ export interface ApiResponse {
   secretCode?: string;
   data?: Array<any>;
 }
+
+
