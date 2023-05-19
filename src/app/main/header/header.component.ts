@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ScheduleComponent } from 'src/app/schedule/schedule.component';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -12,7 +14,7 @@ search:any
 location:any;
 userName:string='';
 isUserPresent=false;
-constructor(private userService:UserService,private router:Router){
+constructor(private userService:UserService,private router:Router,private dialogRef:MatDialog){
  
 }
   ngOnInit(): void {
@@ -31,6 +33,10 @@ constructor(private userService:UserService,private router:Router){
 
 goToCart(){
 this.router.navigateByUrl('explore/cart')
+}
+
+schedule(){
+  this.dialogRef.open(ScheduleComponent);
 }
   }
 

@@ -34,6 +34,9 @@ import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant
 import { MyOrdersComponent } from './main/restaurant-menu/my-orders/my-orders.component';
 import {HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { IndividualCartComponent } from './individual-cart/individual-cart.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +60,9 @@ import { CartComponent } from './cart/cart.component';
     RestaurantDetailsComponent,
     MyOrdersComponent,
     CartComponent,
+    ProgressBarComponent,
+    IndividualCartComponent,
+    ScheduleComponent,
    
 
   ],

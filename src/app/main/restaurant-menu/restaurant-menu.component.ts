@@ -45,7 +45,7 @@ export class RestaurantMenuComponent implements OnInit {
     this.cartDetails.restOrderData.subscribe({
       next: (res: any) => {
         console.log(res);
-        this.cartArray = res;
+        this.cartArray = res["menu"]["data"];
         console.log('Emitted');
 
         console.log(this.cartArray);
@@ -87,7 +87,7 @@ export class RestaurantMenuComponent implements OnInit {
     this.cartDetails.restOrderData.subscribe({
       next: (res: any) => {
         
-        this.cartArray = res;
+        this.cartArray = res["menu"]["data"];
         
         for (let i of this.searchedMenu) {
           i.isAdded=false;

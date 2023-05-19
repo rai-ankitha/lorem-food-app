@@ -13,6 +13,7 @@ export class MyOrdersComponent implements OnInit {
   cartArray: any;
   isLoading = true;
   isCartEmpty: any;
+  cartNumber:any;
   constructor(private cartDetails: CartDetailsService, private cartService: CartService) { }
   restId: any;
 
@@ -22,7 +23,8 @@ export class MyOrdersComponent implements OnInit {
     this.cartDetails.restOrderData.subscribe({
       next: (res: any) => {
         console.log(res);
-        this.cartArray = res;
+        this.cartArray = res["menu"]["data"];
+        this.cartNumber=res['menu']['cartId'];
         this.isLoading = false;
         if (this.cartArray.length == 0) {
           this.isCartEmpty = true;

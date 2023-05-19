@@ -1,0 +1,113 @@
+.parent{
+    position: relative;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+/* Circle - 1 CSS */
+.circle1{
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+    padding: 1px;
+    position: absolute;
+    left:3px;
+    top:3px;
+    border: 2px solid #f1f3fb;
+}
+
+.circle-outer1{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+}
+
+.img1{
+    position: absolute;
+    top:14px;
+    left:33px;
+    width: 25%;
+}
+
+/* Circle - 2 CSS */
+
+.circle2{
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: #C9C6C6;
+    padding: 1px;
+    position: absolute;
+    left:238px;
+    top:3px;
+    border: 2px solid #f1f3fb;
+    z-index: 99;
+}
+.circle-outer2{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #C9C6C6;
+    margin-left: 30%;
+}
+
+.img2{
+    position: absolute;
+    left:258px;
+    top:14px;
+    width: 26%;
+    height: 2px;
+}
+
+/* Circle - 3 CSS */
+
+.circle-outer3{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #C9C6C6;
+    margin-left: 195px;
+}
+
+.circle3{
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: #C9C6C6;
+    padding: 1px;
+    position: absolute;
+    left:468px;
+    top:3px;
+    border: 2px solid #f1f3fb;
+    z-index: 99;
+}
+
+.desc ul{
+    list-style: none;
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.desc ul li{
+    font-size: 13px;
+}
+
+.desc ul li:last-child{
+   margin-right:13px;
+}
+
+
+/* Dynamic */
+
+.deactive{
+    background: #C9C6C6;
+}
+
+.active{
+    background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);   
+}

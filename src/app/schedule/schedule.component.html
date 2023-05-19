@@ -1,0 +1,42 @@
+<div id="modal-content-wrapper">
+    <div class="container">
+
+        <div class="symbol">
+    
+            <i class="fa fa-times" mat-dialog-close ></i>
+    
+        </div>
+    
+        <div class="heading">
+            <h2>Schedule</h2>
+        </div>
+    
+        <div class="heading2">
+            Busy at work now, schedule it for later!
+        </div>
+    
+        <div>
+            <form  [formGroup]="ScheduleDetails">
+                <div class="input">
+    
+                    <mat-form-field class="date-form">
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date"  [min]="todayDate" [(ngModel)]="todayDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker" class="button">change</mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="input1">
+                    <mat-form-field class="date-form">
+                        <mat-label for="appt">Time</mat-label>
+                        <input type="time" id="appt" name="appt" matInput formControlName="time" [min]="time" [(ngModel)]="time">
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+        <div class="btn">
+            <button (click)="schedule()" mat-dialog-close>SCHEDULE DATE AND TIME</button>
+        </div>
+    </div>
+  </div>

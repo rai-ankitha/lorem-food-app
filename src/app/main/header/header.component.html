@@ -5,7 +5,7 @@
 <div class="profile-avatar">
   <img id="profile-icon" src="./assets/header/Profile_placeholder.svg" alt="profile">
 </div>
-      <div class="list-items">&nbsp;{{userName}}
+      <div class="list-items">{{userName}}
       </div>
       <div id="vertical-line"></div>
       <div  class="list-items">
@@ -48,7 +48,7 @@
         style="cursor: pointer" 
       />
     </div>
-    <img class="clock-img"
+    <img (click)="schedule()" class="clock-img"
             src="./assets/home/now_button.png"
             alt="date"
             style="cursor: pointer"

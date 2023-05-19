@@ -1,4 +1,4 @@
-<div  *ngIf="!isLoading" class="container">
+<div  *ngIf="!isLoading&&!isIndividualCart" class="container">
     <div class="nav-link">
         <div class="navbar">
             <a routerLink="/home">
@@ -18,7 +18,7 @@
     </div>
     <!-- content -->
     <div  class="content">
-        <div *ngIf="!isCartEmpty" class="content-heading">My Cart (3)</div>
+        <div *ngIf="!isCartEmpty" class="content-heading">My Cart ({{cartList.length}})</div>
         <div *ngIf="isCartEmpty" class="content-heading">Cart is Empty</div>
         <div class="card-items">
             <div *ngFor="let item of cartList"  class="cart-card">
@@ -28,9 +28,13 @@
                 </div>
                 <div id="location-text">{{item["restaurant"]["address"]}}</div>
                 <div class="cost-text">{{item["data"].length}} item | Rs 85</div>
-                <button class="proceed-btn">proceed</button>
+                <button (click)="goToIndividualCart(item['restaurant']['id'],item['restaurant']['name'])" class="proceed-btn">proceed</button>
             </div>
         </div>
     </div>
+    
 
+</div>
+<div *ngIf="isIndividualCart">
+    <app-individual-cart></app-individual-cart>
 </div>

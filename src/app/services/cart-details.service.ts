@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 export class CartDetailsService {
 myOrderList:RestaurantMenu[]=[];
 private orderDetails: RestaurantMenu | null = null;
-orderDetailsData = new Subject<RestaurantMenu>();
+orderDetailsData = new Subject<RestaurantMenu[]>();
 
 private restOrder: RestaurantMenu | null = null;
 restOrderData = new Subject<RestaurantMenu[]>();
@@ -39,8 +39,8 @@ getRestOrder(restId:any){
     next:(value:any)=>{
       console.log(`from rest services ${value}`);
       
-      this.restOrder=value["menu"]["data"];
-      this.restOrderData.next(value["menu"]["data"]);
+      this.restOrder=value;
+      this.restOrderData.next(value);
     }
   })
 
