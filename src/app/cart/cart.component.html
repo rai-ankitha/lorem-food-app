@@ -22,12 +22,13 @@
         <div *ngIf="isCartEmpty" class="content-heading">Cart is Empty</div>
         <div class="card-items">
             <div *ngFor="let item of cartList"  class="cart-card">
+                {{priceCalculation(item["data"])}}
                 <div class="cart-flex">
                     <div id="rest-name">{{item["restaurant"]["name"]}}</div>
-                    <div id="remove-text">Remove</div>
+                    <div  (click)="removeIndividualCart(item['restaurant']['id'])"  id="remove-text">Remove</div>
                 </div>
                 <div id="location-text">{{item["restaurant"]["address"]}}</div>
-                <div class="cost-text">{{item["data"].length}} item | Rs 85</div>
+                <div class="cost-text">{{item["data"].length}} item | Rs&nbsp;{{totalPrice}}</div>
                 <button (click)="goToIndividualCart(item['restaurant']['id'],item['restaurant']['name'])" class="proceed-btn">proceed</button>
             </div>
         </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartDetailsService } from '../services/cart-details.service';
+import { CartService } from '../services/cart.service';
+import { ApiResponse } from '../models/restaurant-list';
 
 
 @Component({
@@ -10,13 +12,14 @@ import { CartDetailsService } from '../services/cart-details.service';
 export class CartComponent implements OnInit {
   foodType: any;
   city: any;
-  iter: any;
+
   cartList: any;
   isLoading = true;
   isCartEmpty: any;
   isIndividualCart = false;
-  restName: any
-  constructor(private cartDetails: CartDetailsService) { }
+  restName: any;
+  totalPrice = 0;
+  constructor(private cartDetails: CartDetailsService, private cartService: CartService) { }
   ngOnInit(): void {
     this.foodType = JSON.parse(sessionStorage.getItem("searchedRestOrType") as any);
     this.city = JSON.parse(sessionStorage.getItem("searchedLocation") as any);
@@ -32,10 +35,38 @@ export class CartComponent implements OnInit {
         }
         else {
           this.isCartEmpty = false;
+
         }
       }
     })
-    this.iter = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+
+  }
+
+  priceCalculation(data: any) {
+    this.totalPrice = 0;
+    for (let element of data) {
+      this.totalPrice = this.totalPrice + (element['quantity'] * element['menuItem']['price']);
+    }
+  }
+
+  removeIndividualCart(restId:any){
+    this.cartService.deleteEntireCart(restId).subscribe({
+      next: (response: ApiResponse) => {
+        console.log(response.message);
+        
+        // this.cartDetails.restOrderData.next([])
+        this.cartDetails.getOrderDetails();
+        // this.cartList.splice()
+      }
+      ,
+      error: (e) => {
+        console.log(e)
+        // alert(e.error.message);
+      },
+      complete() {
+       
+      },
+    })
   }
   goToIndividualCart(restId: any, restName: any) {
     this.restName = restName

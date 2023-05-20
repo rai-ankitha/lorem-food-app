@@ -14,6 +14,7 @@ export class MyOrdersComponent implements OnInit {
   isLoading = true;
   isCartEmpty: any;
   cartNumber:any;
+  totalCost=0;
   constructor(private cartDetails: CartDetailsService, private cartService: CartService) { }
   restId: any;
 
@@ -31,9 +32,16 @@ export class MyOrdersComponent implements OnInit {
         }
         else {
           this.isCartEmpty = false;
+         this.priceCalculation();
         }
       }
     })
+  }
+  priceCalculation(){
+    this.totalCost = 0
+for(let element of this.cartArray){
+this.totalCost=this.totalCost+(element['quantity']*element['menuItem']['price']);
+}
   }
   displaycart() {
 
@@ -56,7 +64,7 @@ export class MyOrdersComponent implements OnInit {
       },
       complete: () => {
 
-
+        this.priceCalculation();
       },
     });
   }
@@ -74,7 +82,7 @@ export class MyOrdersComponent implements OnInit {
   
         },
         complete: () => {
-  
+          this.priceCalculation();
   
         },
       });
@@ -93,7 +101,7 @@ export class MyOrdersComponent implements OnInit {
   
         },
         complete: () => {
-  
+          this.priceCalculation();
   // this.cartArray.splice(index,1);
         },
       });
@@ -101,11 +109,11 @@ export class MyOrdersComponent implements OnInit {
    
   }
   clearCart() {
-    this.cartService.deleteEntireCart().subscribe({
+    this.cartService.deleteEntireCart(this.restId).subscribe({
       next: (response: ApiResponse) => {
         console.log(response.message);
         this.isCartEmpty = true;
-        this.cartDetails.deleteAll();
+       
         // this.cartDetails.restOrderData.next([])
         this.cartDetails.getRestOrder(this.restId);
       }

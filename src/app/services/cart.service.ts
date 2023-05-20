@@ -73,12 +73,12 @@ export class CartService {
     return this.http.delete<ApiResponse>(environment.url + 'api/cart/delete-item'
       , options);
   }
-  deleteEntireCart() {
+  deleteEntireCart(restId:any) {
 
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
     // let email = this.userService.emailId
-    let restId = sessionStorage.getItem('restId');
+    // let restId = sessionStorage.getItem('restId');
     // let restId = this.restDetails.restaurantDetails.id;
     let email = JSON.parse(sessionStorage.getItem('email') as any)
     const options = {

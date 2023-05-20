@@ -17,14 +17,14 @@
         <div (click)="decrement(data,i)" class="minus">-</div>
 
         <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/minus.png" alt="minus">  -->
-        <div>{{data["quantity"]}}</div>
+        <span style="color: #feb456;">{{data["quantity"]}}</span>
         <div (click)="increment(data['menuItem']['id'])" class="add">+</div>
         <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/add.png" alt="add">  -->
       </div>
     </div>
     <div class="cost-flex">
-      <div>Rs{{data["menuItem"]["price"]}}</div>
-      <div>Rs{{data["menuItem"]["price"]}}</div>
+      <div>Rs&nbsp;{{data["menuItem"]["price"]}}</div>
+      <div>Rs&nbsp;{{data["quantity"]*data["menuItem"]["price"]}}</div>
     </div>
    
     <div class="remove-icon">Remove</div>
@@ -32,7 +32,7 @@
 </div>
 <div class="to-pay-card">
   <div>To Pay</div>
-  <div>AED85.76</div>
+  <div>Rs&nbsp;{{totalCost}}</div>
 
 </div>
 <div class="comments">
