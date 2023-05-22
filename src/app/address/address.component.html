@@ -1,0 +1,61 @@
+<div class="address">
+    <div class="symbol">
+      <i mat-button matDialogClose class="fa fa-times"></i>
+    </div>
+  
+    <div class="heading">
+      <h2>Add new address</h2>
+    </div>
+  
+    <div class="input">
+      <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+  
+        <div id="input">
+          <mat-form-field class="address-form">
+            <input matInput placeholder="City" type="text" formControlName="city">
+          </mat-form-field>
+  
+          <div id="red" *ngIf="addressForm.get('city')?.errors?.['pattern'] ">City cannot be in numbers
+          </div>
+        </div>
+  
+        <div id="input">
+          <mat-form-field class="address-form">
+            <input matInput placeholder="Area" type="text" formControlName="area">
+          </mat-form-field>
+  
+          <div id="red" *ngIf="addressForm.get('area')?.errors?.['pattern'] ">Area cannot be in numbers
+          </div>
+        </div>
+  
+        <div id="input">
+          <mat-form-field class="address-form">
+            <input matInput placeholder="Address" type="text" formControlName="address">
+          </mat-form-field>
+  
+          <div id="red" *ngIf="addressForm.get('address')?.errors?.['pattern'] ">Address cannot be in numbers
+          </div>
+        </div>
+  
+        <div id="input">
+  
+          <label for="option">Address Type</label>
+  
+          <select class="option" formControlName="label" >
+            <option value="home">Home</option>
+            <option value="office">Office</option>
+          </select>
+  
+          <!-- <small *ngIf="addressForm.get('label')?.errors?.['required'] " id="red1">Please select address type</small> -->
+        </div>
+  
+  
+        <div id="btn">
+          <button type="submit" [class.disable]="disable" [disabled]="addressForm.invalid">
+            SAVE ADDRESS
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

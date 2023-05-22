@@ -1,0 +1,330 @@
+.container {
+    background-color: rgb(241, 243, 251);
+    
+}
+
+/* navigation */
+.nav-link {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 100%;
+    border-bottom: 2px solid #ededed;
+}
+
+.navbar {
+    display: flex;
+    margin: auto;
+    width: 50%;
+}
+
+.list-items {
+    margin-right: 10px;
+    color: #6f6f6f;
+}
+
+a {
+
+    text-decoration: none;
+}
+
+/* Content */
+.content {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin: auto;
+    width: 50%; 
+}
+
+.content-heading{
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-weight: 600;
+}
+.resto-card{
+    
+    height: fit-content;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #ffff;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    /* margin-bottom: 20px;  */
+}
+.item-list {
+    margin: 20px;
+    padding-top: 10px;
+  }
+.item-list p{
+    color: #4A4A4A;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: -0.24px;
+}
+ 
+
+.delivery-image{
+    width: 75%;
+    display: flex;
+   margin-left: 20px;
+    position: relative;
+    top: 8px;
+    right: 15px;
+}
+.image-left img, .image-right img{
+    height: 62px;
+    width: 97px;
+    
+   
+}
+.image-left ,.image-right{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.input, .Input{
+    display: flex;
+    margin-top: 6px;
+    margin-left: 10px;
+    accent-color: black;
+    height: 30px;
+    align-items: center;
+    width: 120px;
+   
+}
+
+.input label, .Input label{
+    color: #4A4A4A;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: -0.24px;
+    line-height: 19px;
+    margin-left: 5px;
+}
+.header{
+    height: 30px;
+    display: flex;
+    position: relative;
+    top: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+.header>.title{
+    color: #000000;
+  font-family: "Open Sans";
+  font-size: 17px;
+    /* line-height: 23px; */
+    font-weight: 500;
+    margin-left: 5px;
+}
+.header button{
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px 0 rgba(244, 195, 195, 0.38);
+    border: 1px solid orange;
+    background-color: white;
+
+    color: orange;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    line-height: 19px;
+    text-align: center;
+    text-shadow: 0 4px 10px 0 rgba(246,126,126,0.38);
+}
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.display{
+    /* border: 2px solid red; */
+    height: 120px;
+    align-items: center;
+    margin-top: 40px;
+    display: -webkit-box;
+    /* grid-template-columns: repeat(2, 1fr); */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 15px;
+    width: 100%;
+    /* margin-left: 5px; */
+}
+.display::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 2px;
+}
+
+.display::-webkit-scrollbar {
+  width: 3px;
+  height: 6px;
+  background: transparent;
+}
+
+.display::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #ee9f17;
+}
+
+.address-card {
+     /* border: 2px solid red; */
+    height: 100px;
+    width: 48%;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(5, 5, 5, 0.18);
+}
+.phone{
+  margin-top: 10px;
+
+}
+
+.head{
+    display:flex;
+    height: 20px;
+    justify-content: space-between;
+    color: #3b3939;
+}
+.head>p{
+    color: #6A6A6A;
+    font-family: "Open Sans";
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    line-height: 40px;
+    position: relative;
+    left: 12px;
+  
+}
+.primary-able>input{
+    position: relative;
+    right: 15px;
+    top: 5px;
+   accent-color: black;
+}
+
+.primary-disable>input{
+  position: relative;
+  right: 15px;
+  top: 5px;
+  accent-color: black;
+  cursor: pointer;
+}
+.body{
+    color: #2D2D2D;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: -0.24px;
+    position: relative;
+    left: 12px;
+    top: 12px;
+}
+
+.buttons>.edit, .buttons>.delete{
+    background-color: white;
+    border: none;
+    color: #F57C00;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 17px;
+    text-align: center;
+    margin-left: 10px;
+    position: relative;
+    left: 130px;
+    top: 14px;
+  
+}
+
+
+#form-label {
+    display: block;
+    padding-top: 10px;
+    color: #858585;
+    font-family: "Open Sans";
+    font-size: 15px;
+  }
+  .form-group {
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+  .form-control {
+   width: 50%;
+    border: none;
+    border-bottom: 1px solid #A4A4A4;
+    padding: 0px 0px;
+    outline: none;
+   
+  }
+  .error-text{
+    color: #ED1B2E;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  
+  }
+
+
+  input {
+    width: 100%;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #ededed;
+    margin-top: 10px;
+    padding-bottom:10px;
+  
+  }
+  input:focus {
+    outline: none
+  }
+  #cooking-title{
+    color: #858585;
+    font-family: "Open Sans";
+    font-size: 12px;
+    
+  }
+  input::placeholder {
+    color: #4A4A4A;
+    font-family: "Open Sans";
+    font-size: 16px;
+    padding-bottom: 10px;
+    outline: none
+  }
+  .btn-flex{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 30px;
+    /* padding-top: 20px; */
+    padding-right: 20px;
+  }
+  .back-btn{
+    align-self: self-end;
+    background-color: white;
+    padding: 15px 50px;
+    margin-right: 20px;
+    color: #979797;
+    border: 1px solid #979797;
+    border-radius: 6px;
+    text-transform: uppercase;
+
+  }
+  .address-btn{
+    border: none;
+    margin-top: 70px;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+  
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.56px;
+    color: white;
+    border-radius: 6px;
+    background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+    box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+  }

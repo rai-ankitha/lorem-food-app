@@ -1,5 +1,5 @@
 <!-- <app-progress-bar></app-progress-bar> -->
-<div *ngIf="!isLoading&&!isBack" class="container">
+<div *ngIf="!isLoading&&!isBack&&!isNext" class="container">
     <div class="nav-link">
         <div class="navbar">
             <a routerLink="/home">
@@ -56,11 +56,14 @@
             </div>
             <div class="btn-flex">
                 <button (click)="goToMyCart()" class="back-btn">back</button>
-                <button class="address-btn">choose address</button>
+                <button (click)="chooseAddress()" class="address-btn">choose address</button>
             </div>
         </div>
     </div>
 </div>
-<div *ngIf="isBack">
+<div *ngIf="isBack&&!isNext">
     <app-cart></app-cart>
+</div>
+<div *ngIf="isNext">
+    <app-choose-address></app-choose-address>
 </div>

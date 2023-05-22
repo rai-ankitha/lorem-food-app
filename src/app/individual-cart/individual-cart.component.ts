@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartDetailsService } from '../services/cart-details.service';
 import { CartService } from '../services/cart.service';
 import { ApiResponse } from '../models/restaurant-list';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-individual-cart',
@@ -17,7 +18,8 @@ export class IndividualCartComponent implements OnInit {
   restData: any;
   cartNumber: any;
   isBack=false;
-  constructor(private cartDetails: CartDetailsService, private cartService: CartService) { }
+  isNext=false;
+  constructor(private cartDetails: CartDetailsService, private cartService: CartService,private router:Router) { }
   ngOnInit(): void {
     this.foodType = JSON.parse(sessionStorage.getItem("searchedRestOrType") as any);
     this.city = JSON.parse(sessionStorage.getItem("searchedLocation") as any);
@@ -98,5 +100,7 @@ export class IndividualCartComponent implements OnInit {
   goToMyCart(){
     this.isBack=true;
   }
-
+  chooseAddress(){
+this.isNext=true;
+  }
 }

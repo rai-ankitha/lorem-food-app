@@ -37,6 +37,8 @@ import { CartComponent } from './cart/cart.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { IndividualCartComponent } from './individual-cart/individual-cart.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { AddressComponent } from './address/address.component';
+import { ChooseAddressComponent } from './choose-address/choose-address.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     ProgressBarComponent,
     IndividualCartComponent,
     ScheduleComponent,
+    AddressComponent,
+    ChooseAddressComponent,
    
 
   ],
