@@ -32,11 +32,6 @@ export class ScheduleComponent implements OnInit {
       sessionStorage.setItem('date',JSON.stringify(this.ScheduleDetails.get('date')?.value)as any);
       sessionStorage.setItem('time',JSON.stringify(this.ScheduleDetails.get('time')?.value)as any);
 
-      let address = JSON.parse(sessionStorage.getItem('chechOrderDetails') as any);
-    address.scheduleDate = (this.ScheduleDetails.get('date')?.value) ;
-    address.scheduleTime = (this.ScheduleDetails.get('time')?.value)+":00";
-    sessionStorage.setItem('chechOrderDetails', JSON.stringify(address));
-    sessionStorage.setItem('dateTime',"scheduled")
     }
 
   }

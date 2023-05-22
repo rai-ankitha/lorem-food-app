@@ -1,0 +1,84 @@
+<div *ngIf="!isBack && !isNext" class="container">
+  <div class="nav-link">
+    <div class="navbar">
+      <a routerLink="/home">
+        <div class="list-items">Home</div>
+      </a>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <div class="list-items">{{ city | titlecase }}</div>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <a routerLink="/explore">
+        <div class="list-items">Explore</div>
+      </a>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <div class="list-items">{{ foodType | titlecase }}</div>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <div class="list-items">My Cart</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-heading">Payment</div>
+    <div class="resto-card">
+      <div class="item-list">
+        <div>Please select your preferred way to pay.</div>
+        <div class="card-flex">
+            <div class="cash-card">
+                <input
+                type="radio"
+                id="radio"
+                value="cash"
+                name="select"
+                checked
+              />
+              <img class="payment-img" src="./assets/cart/icn_wallet.png" alt="">
+              <div class="payment-type">Cash</div>
+            </div>
+            <div class="cash-card">
+                <input
+                type="radio"
+                id="radio"
+                value="credit"
+                name="select"
+            
+              />
+              <img class="payment-img" src="./assets/cart/icn_credit_card.png" alt="">
+              <div class="payment-type">Credit/Debit Card</div>
+            </div>
+        </div>
+        <div class="sub-text">Delivery Details</div>
+        <div class="delivery-details-card">
+            <label id="form-label">Delivery location</label>
+            <div class="form-group"><input class="form-control" type="text" value={{address|titlecase}}></div>
+            <div id="horizontal-line"></div>
+            <label id="form-label">Date & Time</label>
+            <div class="form-group"><input class="form-control" type="text" value={{mydate}}&nbsp;at{{time}}></div>
+        </div>
+        
+        <div class="sub-text"> Items in your order from</div>
+        <div class="hotel-card">
+            <div class="hotel-flex">
+                <div class="hotel-details">
+                    <div id="hotel-name">{{restName}}</div>
+                    <div id="hotel-location">{{restLocation}}</div>
+                </div>
+                <img id="arrow-img" src="./assets/cart/arrow_choose_address.png" alt="arrow">
+               
+            </div>
+            
+        </div>
+      </div>
+
+     
+      <div class="btn-flex">
+        <button (click)="goToChooseAddress()" class="back-btn">back</button>
+        <button (click)="payNow()" class="address-btn">pay now</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isBack && !isNext">
+  <app-choose-address></app-choose-address>
+</div>
+<div *ngIf="isNext">
+  <app-choose-address></app-choose-address>
+</div>

@@ -1,36 +1,94 @@
+.address{
+    height: 570px;
+    width: 570px;
+    
+    /* display: grid; */
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+   padding: 30px;
+}
 .symbol{
     float: right;
     font-size: 20px;
     color: grey;
 }
-.heading{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.heading h2{
+.content-heading{
+   padding-top: 20px;
+    text-align: center;
+    /* justify-self: center;  */
     color: #4c4c4ccd;;
     font-size: 24px;
     font-weight: 500;
-    letter-spacing: -0.34px;
-    line-height: 26px;
+    
+}
+.location-box {
+    margin-top: 50px;
+    color: #000;
+    display: flex;
+    background-color: #FFFFFF;
+    margin-right: 20px;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14);
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .location-img{
+    height: 22px;
+    width: 22px;
+  }
+  .icn-pin-img{
+    height: 18px;
+    width: 10px;
+  }
+  .location-box-input {
+    all: unset;
+    color: #000;
+    margin-right: 10px;
+    margin-left: 10px;
+    flex-grow: 1;
+  }
+  .clock-img{
+    display: block;
+    padding: 0 !important;
+    size: 100%; 
+    padding: 0;
+    margin: 0; 
+    line-height: 0;
+    /* max-width: 100%;  
+  height: auto;   */
+    /* width: 8%;
+    height: 8%; */
+    margin-left: 10px;
+  }
+  #form-label {
+   
+   padding-top: 30px;
+    color: #858585;
+    font-family: "Open Sans";
+    font-size: 16px;
+  }
+  .form-group {
+      padding-right: 20px;
+      padding-bottom: 20px;
+    }
+    .form-control {
+    
+      border: none;
+      border-bottom: 1px solid #A4A4A4;
+      padding: 0px 0px;
+      outline: none;
+      width: 100%;
+      
+    }
+    .form-control:focus {
+      outline: none;
   }
 
-.address-form{
-    height: 67px;
-    width: 480px;
-    color: #4A4A4A;
-  font-family: "Open Sans";
-  font-size: 16px;
-  letter-spacing: -0.27px;
-  line-height: 22px;
-  margin: 7px;
-  margin-left: 20px;
-}
 .option{
-    width: 480px; 
+    width: 97%; 
     margin-top: 25px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     border: none;
     background-color: #FFFFFF;
     color: #4a4a4ade;
@@ -39,6 +97,7 @@
     letter-spacing: -0.27px;
     line-height: 22px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.49);
+    
 }
 .option:focus{
     outline: none;
@@ -50,18 +109,7 @@
     position: relative;
     top: 50px;
 }
-.input{
-    position: relative;
-    top: 40px;
-}
-#input> label{
-    position: relative;
-    top: 20px;
-    left: 22px;
-    color: #4a4a4ade;
-    font-family: "Open Sans";
-    font-size: 16px;
-}
+
 #btn button{
     height: 50px;
     width: 335px;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiResponse, RestaurantMenu } from 'src/app/models/restaurant-list';
 import { CartDetailsService } from 'src/app/services/cart-details.service';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderDetailsService } from 'src/app/services/order-details.service';
 
 
 @Component({
@@ -14,8 +15,10 @@ export class MyOrdersComponent implements OnInit {
   isLoading = true;
   isCartEmpty: any;
   cartNumber:any;
+  restName:any;
+  restLocation:any;
   totalCost=0;
-  constructor(private cartDetails: CartDetailsService, private cartService: CartService) { }
+  constructor(private cartDetails: CartDetailsService, private cartService: CartService,private orderDetails:OrderDetailsService) { }
   restId: any;
 
   ngOnInit(): void {
@@ -26,6 +29,8 @@ export class MyOrdersComponent implements OnInit {
         console.log(res);
         this.cartArray = res["menu"]["data"];
         this.cartNumber=res['menu']['cartId'];
+        this.restName=res['menu']['restaurant']['name'];
+        this.restLocation=res['menu']['restaurant']['address'];
         this.isLoading = false;
         if (this.cartArray.length == 0) {
           this.isCartEmpty = true;
@@ -108,6 +113,25 @@ this.totalCost=this.totalCost+(element['quantity']*element['menuItem']['price'])
     }
    
   }
+
+  removeItem(id: any){
+    this.cartService.removeCartItem(id).subscribe({
+      next: (response: ApiResponse) => {
+        console.log(response);
+        this.cartDetails.getRestOrder(this.restId);
+
+      },
+      error: (e) => {
+        console.log(e)
+
+      },
+      complete: () => {
+
+        this.priceCalculation();
+      },
+    });
+  }
+
   clearCart() {
     this.cartService.deleteEntireCart(this.restId).subscribe({
       next: (response: ApiResponse) => {
@@ -126,5 +150,8 @@ this.totalCost=this.totalCost+(element['quantity']*element['menuItem']['price'])
 
       },
     })
+  }
+  goToChooseAddress(){
+this.orderDetails.saveOrderDetails(this.restName,this.restLocation,this.cartNumber,this.totalCost);
   }
 }

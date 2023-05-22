@@ -17,7 +17,7 @@
             <div class="list-items">My Cart</div>
         </div>
     </div>
-    <div class="content">
+    <div *ngIf="!isCartEmpty" class="content">
         <div class="content-heading">
             {{restData['name']}}
         </div>
@@ -46,7 +46,7 @@
                         <div>Rs&nbsp;{{data["quantity"]*data["menuItem"]["price"]}}</div>
                     </div>
 
-                    <div class="remove-icon">Remove</div>
+                    <div (click)="removeItem(data['menuItem']['id'],i)" class="remove-icon">Remove</div>
                 </div>
             </div>
 
@@ -58,6 +58,11 @@
                 <button (click)="goToMyCart()" class="back-btn">back</button>
                 <button (click)="chooseAddress()" class="address-btn">choose address</button>
             </div>
+        </div>
+    </div>
+    <div *ngIf="isCartEmpty&&!isBack&&!isNext" class="content">
+        <div class="content-heading">
+            Cart is Empty
         </div>
     </div>
 </div>

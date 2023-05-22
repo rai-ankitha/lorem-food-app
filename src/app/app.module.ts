@@ -39,6 +39,7 @@ import { IndividualCartComponent } from './individual-cart/individual-cart.compo
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AddressComponent } from './address/address.component';
 import { ChooseAddressComponent } from './choose-address/choose-address.component';
+import { PaymentComponent } from './payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     ScheduleComponent,
     AddressComponent,
     ChooseAddressComponent,
+    PaymentComponent,
    
 
   ],

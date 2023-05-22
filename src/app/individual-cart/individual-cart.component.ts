@@ -3,6 +3,8 @@ import { CartDetailsService } from '../services/cart-details.service';
 import { CartService } from '../services/cart.service';
 import { ApiResponse } from '../models/restaurant-list';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ScheduleComponent } from '../schedule/schedule.component';
 
 @Component({
   selector: 'app-individual-cart',
@@ -19,7 +21,8 @@ export class IndividualCartComponent implements OnInit {
   cartNumber: any;
   isBack=false;
   isNext=false;
-  constructor(private cartDetails: CartDetailsService, private cartService: CartService,private router:Router) { }
+  isCartEmpty: any;
+  constructor(private cartDetails: CartDetailsService, private cartService: CartService,private router:Router, private dialogRef:MatDialog) { }
   ngOnInit(): void {
     this.foodType = JSON.parse(sessionStorage.getItem("searchedRestOrType") as any);
     this.city = JSON.parse(sessionStorage.getItem("searchedLocation") as any);
@@ -32,7 +35,13 @@ export class IndividualCartComponent implements OnInit {
         this.restData = res['menu']['restaurant'];
         this.cartNumber = res['menu']['cartId'];
         this.isLoading = false;
+        if (this.cartArray.length == 0) {
+          this.isCartEmpty = true;
+        }
+        else {
+          this.isCartEmpty = false;
 
+        }
       }
     })
   }
@@ -90,17 +99,42 @@ export class IndividualCartComponent implements OnInit {
         },
         complete: () => {
 
-          // this.cartArray.splice(index,1);
+          this.cartArray.splice(index,1);
+
         },
       });
     }
 
+  }
+  removeItem(id:any,index:any){
+    this.cartService.removeCartItem(id).subscribe({
+      next: (response: ApiResponse) => {
+        console.log(response);
+        this.cartDetails.getRestOrder(this.restId);
+
+      },
+      error: (e) => {
+        console.log(e)
+
+      },
+      complete: () => {
+        this.cartArray.splice(index,1);
+      },
+    });
   }
 
   goToMyCart(){
     this.isBack=true;
   }
   chooseAddress(){
-this.isNext=true;
+    if(JSON.parse(sessionStorage.getItem('date')as any)&&JSON.parse(sessionStorage.getItem('time')as any)){
+      this.isNext=true;
+      
+    }
+    else{
+      alert('Please Schedule date and time before choosing address')
+      this.dialogRef.open(ScheduleComponent);
+    }
+
   }
 }

@@ -1,7 +1,3 @@
-/* .container{
-    margin-top: 30px;
-
-} */
 .container {
     background-color: rgb(241, 243, 251);
     
@@ -37,8 +33,6 @@ a {
     padding-bottom: 50px;
     margin: auto;
     width: 50%; 
-    height: 100%;
-   
 }
 
 .content-heading{
@@ -48,12 +42,6 @@ a {
   font-weight: 600;
   letter-spacing: 0;
   margin-bottom: 5px;
-}
-.distance-text{
-    color: #6F6E6E;
-    font-family: "Open Sans";
-    font-size: 12px;
-    letter-spacing: 0;
 }
 .resto-card{
     
@@ -65,93 +53,69 @@ a {
     /* margin-bottom: 20px;  */
 }
 .item-list {
-    margin: 20px;
+    padding: 20px;
   }
-  .item-card {
+  .card-flex{
     display: flex;
-    flex-direction: column;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ededed;
-    /* margin-bottom: 10px; */
-   
+    margin-top: 20px;
+    width: 100%;
   }
-  .item-title {
+  #radio{
+    accent-color: black;
+  }
+  .cash-card{
+   align-items: center;
+    margin-right: 20px;
     display: flex;
-    /* justify-content: space-between; */
-    padding-bottom: 10px;
-    padding-top: 30px;
-    
+    padding: 10px;
+    width: fit-content;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
   }
-  .veg-nonveg-icon {
-    width: 14px;
-    height: 14px;
-    margin-right: 10px;
+  .payment-img{
+    margin-left: 10px;
   }
-  #item-name{
+  .payment-type{
+    margin-left: 10px;
     flex-grow: 1;
   }
-  .add-remove-container {
-    align-self:end;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding:5px 5px;
-    border: 2px solid #ededed;
-    border-radius: 20px;
+  .sub-text{
+margin-top: 20px;
+  color: #000000;
+  font-family: "Open Sans";
+  font-size: 17px;
   }
-  .minus{
-    text-align: start;
-  margin-left: 10px;
-  margin-right: 20px;
-  cursor: pointer;
-  }
-  .add{
-    text-align: end;
-    margin-left: 20px;
-     margin-right: 10px; 
-     cursor: pointer;
-      color: #feb456;
-  }
-  
-  .remove-icon {
+  .delivery-details-card{
+    border-radius: 6px;
     margin-top: 10px;
-    align-self: flex-end;
-    cursor: pointer;
-    color: #ed1b2e;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+    padding: 20px;
+
+   
   }
-  .cost-flex{
-    display: flex;
-    justify-content: space-between;
-  }
- 
-  .comments{
-    margin: 20px 20px 0px 20px;
-  }
-  input {
-    width: 100%;
-    outline: 0;
-    border-width: 0 0 2px;
-    border-color: #ededed;
-    margin-top: 10px;
-    padding-bottom:10px;
-  
-  }
-  input:focus {
-    outline: none
-  }
-  #cooking-title{
+  #form-label {
+    padding: 0;
+    margin: 0;
+   padding-top: 30px;
     color: #858585;
     font-family: "Open Sans";
-    font-size: 12px;
-    
-  }
-  input::placeholder {
-    color: #4A4A4A;
-    font-family: "Open Sans";
     font-size: 16px;
-    padding-bottom: 10px;
-    outline: none
   }
+  .form-group {
+      padding-right: 20px;
+      padding-bottom: 20px;
+    }
+    .form-control {
+    
+      border: none;
+      border-bottom: 1px solid #A4A4A4;
+      padding: 0px 0px;
+      outline: none;
+     border: none;
+      
+    }
   .btn-flex{
     display: flex;
     justify-content: flex-end;
@@ -159,6 +123,45 @@ a {
     padding-bottom: 30px;
     /* padding-top: 20px; */
     padding-right: 20px;
+  }
+  .hotel-card{
+    margin-top: 20px;
+    border-radius: 6px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+  
+  }
+  .hotel-flex{
+    display: flex;
+    padding: 20px;
+  }
+  .hotel-details{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  #horizontal-line{
+    border-bottom: 1px solid #EDEDED;
+    margin-bottom: 10px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+  }
+  #hotel-name{
+    color: #2D2D2D;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+  }
+  #hotel-location{
+    color: #2D2D2D;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: -0.24px;
+  }
+  #arrow-img{
+    height: 14px;
+  width: 8px;
+  justify-self: flex-end;
   }
   .back-btn{
     align-self: self-end;
@@ -185,10 +188,4 @@ a {
     border-radius: 6px;
     background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
     box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
-  }
-  .content-empty{
-    margin: auto;
-    width: 50%; 
-    text-align: center;
-    height: 80%;
   }

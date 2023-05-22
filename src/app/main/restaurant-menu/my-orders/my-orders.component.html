@@ -27,7 +27,7 @@
       <div>Rs&nbsp;{{data["quantity"]*data["menuItem"]["price"]}}</div>
     </div>
    
-    <div class="remove-icon">Remove</div>
+    <div (click)="removeItem(data['menuItem']['id'])" class="remove-icon">Remove</div>
   </div>
 </div>
 <div class="to-pay-card">
@@ -39,7 +39,7 @@
   <label id="cooking-title" for="cookingInstructions">Cooking instructions?</label>
   <input name="cookingInstructions" type="text" placeholder="Mention it here...">
 </div>
-<div   class="btn-proceed">
+<div (click)="goToChooseAddress()"   class="btn-proceed">
   Proceed to checkout >
 </div>
 </div>

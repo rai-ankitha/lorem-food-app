@@ -4,13 +4,14 @@ import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../models/restaurant-list';
 import { UserService } from '../user.service';
 import { RestDetailsService } from './rest-details.service';
+import { OrderDetailsService } from './order-details.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor(private http: HttpClient, private userService: UserService, private restDetails: RestDetailsService) { }
+  constructor(private http: HttpClient, private restDetails: RestDetailsService,private orderDetails:OrderDetailsService) { }
 
   getOrderDetails() {
     
@@ -77,9 +78,7 @@ export class CartService {
 
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
-    // let email = this.userService.emailId
-    // let restId = sessionStorage.getItem('restId');
-    // let restId = this.restDetails.restaurantDetails.id;
+  
     let email = JSON.parse(sessionStorage.getItem('email') as any)
     const options = {
       headers: headers_object,
@@ -92,4 +91,57 @@ export class CartService {
     return this.http.delete<ApiResponse>(environment.url + 'api/cart/clear-cart'
       , options);
   }
+  removeCartItem(menuItemId: any){
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    // let email = this.userService.emailId
+    let email = JSON.parse(sessionStorage.getItem('email') as any)
+    const options = {
+      headers: headers_object,
+      body: {
+        "emailId": email,
+        "menuItemId": menuItemId,
+      }
+    }
+
+    return this.http.delete<ApiResponse>(environment.url + 'api/cart/remove-cart-item'
+      , options);
+  }
+
+  postOrder(){
+    let token = sessionStorage.getItem('token');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    let cartId = this.orderDetails.cartNo
+    let email = JSON.parse(sessionStorage.getItem('email') as any)
+let date=JSON.parse(sessionStorage.getItem('date') as any)
+let time=JSON.parse(sessionStorage.getItem('time') as any)
+let address=this.orderDetails.address
+let type=this.orderDetails.addressType
+let totalCost=this.orderDetails.totalPrice
+let userName=this.orderDetails.userName
+let mobile=this.orderDetails.contactNo
+    const body = {
+      "emailId": email,
+      "cartId": cartId,
+      "date":date,
+    "time":time,
+    "address":{
+        "location":address,
+    "isPrimary":true,
+   "type":type.toUpperCase()
+    },
+    "cookingInstruction":"",
+    "deliveryType":"DELIVER_TO_ME",
+    "contactName":userName,
+    "mobileNo":mobile,
+    "deliveryInstruction":"",
+    "paymentMode":"CASH",
+    "itemCost":totalCost
+    }
+    console.log(body)
+
+    return this.http.post<ApiResponse>(environment.url + 'api/order/place-order'
+      , body, { headers: headers_object });
+  }
+
 }

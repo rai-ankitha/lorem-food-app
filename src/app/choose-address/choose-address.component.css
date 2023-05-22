@@ -63,7 +63,7 @@ a {
  
 
 .delivery-image{
-    width: 75%;
+    width: 85%;
     display: flex;
    margin-left: 20px;
     position: relative;
@@ -83,15 +83,19 @@ a {
     padding: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.input, .Input{
+.input{
     display: flex;
     margin-top: 6px;
-    margin-left: 10px;
+    justify-self: start;
+    /* margin-left: 10px; */
     accent-color: black;
     height: 30px;
     align-items: center;
-    width: 120px;
+    width: 100px;
    
+}
+#radio,#radio2{
+  padding: 0;
 }
 
 .input label, .Input label{
@@ -100,7 +104,8 @@ a {
     font-size: 14px;
     letter-spacing: -0.24px;
     line-height: 19px;
-    margin-left: 5px;
+    /* margin-left: 5px; */
+    width: 100px;
 }
 .header{
     height: 30px;
