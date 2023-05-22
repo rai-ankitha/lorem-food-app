@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../models/restaurant-list';
@@ -79,5 +79,18 @@ resetPasswordEmail(email:any,password:any,code:any){
     return this.http.put<ApiResponse>(environment.url +'api/user/update-password',body);
 }
 
+logOut(){
+  let token = sessionStorage.getItem('token');
+  let refreshToken = sessionStorage.getItem('refreshToken');
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    let params = new HttpHeaders();
+    headers_object = params.append('refresh-token',refreshToken!);
+   
+    const options = {
+      headers: headers_object,
+    }
 
+    return this.http.post<ApiResponse>(environment.url + 'api/user/session/logout'
+      , options);
+}
 }

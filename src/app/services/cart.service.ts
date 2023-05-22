@@ -11,34 +11,36 @@ import { OrderDetailsService } from './order-details.service';
 })
 export class CartService {
 
-  constructor(private http: HttpClient, private restDetails: RestDetailsService,private orderDetails:OrderDetailsService) { }
+  constructor(private http: HttpClient, private restDetails: RestDetailsService, private orderDetails: OrderDetailsService) { }
 
   getOrderDetails() {
-    
+
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
-   
+
     let email = JSON.parse(sessionStorage.getItem('email') as any)
 
     const options = {
       headers: headers_object,
-      params:new HttpParams().set('emailId',email)}
+      params: new HttpParams().set('emailId', email)
+    }
     return this.http.get(environment.url + '/api/cart/my-cart'
-      ,options);
+      , options);
   }
 
-  getRestaurantOrder(restId:any) {
-    
+  getRestaurantOrder(restId: any) {
+
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
-   
+
     let email = JSON.parse(sessionStorage.getItem('email') as any)
 
     const options = {
       headers: headers_object,
-      params:new HttpParams().set('emailId',email)}
-    return this.http.get(environment.url + 'api/cart/'+restId+'/my-cart'
-      ,options);
+      params: new HttpParams().set('emailId', email)
+    }
+    return this.http.get(environment.url + 'api/cart/' + restId + '/my-cart'
+      , options);
   }
 
   addToCart(menuItemId: any) {
@@ -74,11 +76,11 @@ export class CartService {
     return this.http.delete<ApiResponse>(environment.url + 'api/cart/delete-item'
       , options);
   }
-  deleteEntireCart(restId:any) {
+  deleteEntireCart(restId: any) {
 
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
-  
+
     let email = JSON.parse(sessionStorage.getItem('email') as any)
     const options = {
       headers: headers_object,
@@ -91,7 +93,7 @@ export class CartService {
     return this.http.delete<ApiResponse>(environment.url + 'api/cart/clear-cart'
       , options);
   }
-  removeCartItem(menuItemId: any){
+  removeCartItem(menuItemId: any) {
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
     // let email = this.userService.emailId
@@ -108,35 +110,38 @@ export class CartService {
       , options);
   }
 
-  postOrder(){
+  postOrder() {
     let token = sessionStorage.getItem('token');
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
     let cartId = this.orderDetails.cartNo
     let email = JSON.parse(sessionStorage.getItem('email') as any)
-let date=JSON.parse(sessionStorage.getItem('date') as any)
-let time=JSON.parse(sessionStorage.getItem('time') as any)
-let address=this.orderDetails.address
-let type=this.orderDetails.addressType
-let totalCost=this.orderDetails.totalPrice
-let userName=this.orderDetails.userName
-let mobile=this.orderDetails.contactNo
+    let date = JSON.parse(sessionStorage.getItem('date') as any)
+    let time = JSON.parse(sessionStorage.getItem('time') as any)
+    let address = this.orderDetails.address
+    let type = this.orderDetails.addressType
+    let totalCost = this.orderDetails.totalPrice
+    let userName = this.orderDetails.userName
+    let mobile = this.orderDetails.contactNo
+    let deliveryType = this.orderDetails.deliveryType
+    let deliveryInst = this.orderDetails.deliveryInst;
+    let paymentType = this.orderDetails.paymentType;
     const body = {
       "emailId": email,
       "cartId": cartId,
-      "date":date,
-    "time":time,
-    "address":{
-        "location":address,
-    "isPrimary":true,
-   "type":type.toUpperCase()
-    },
-    "cookingInstruction":"",
-    "deliveryType":"DELIVER_TO_ME",
-    "contactName":userName,
-    "mobileNo":mobile,
-    "deliveryInstruction":"",
-    "paymentMode":"CASH",
-    "itemCost":totalCost
+      "date": date,
+      "time": time,
+      "address": {
+        "location": address,
+        "isPrimary": true,
+        "type": type.toUpperCase()
+      },
+      "cookingInstruction": "",
+      "deliveryType": deliveryType,
+      "contactName": userName,
+      "mobileNo": mobile,
+      "deliveryInstruction": deliveryInst,
+      "paymentMode": paymentType,
+      "itemCost": totalCost
     }
     console.log(body)
 

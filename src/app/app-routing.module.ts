@@ -6,6 +6,7 @@ import { RestaurantSearchComponent } from './main/restaurant-search/restaurant-s
 import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.component';
 import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant-details.component';
 import { CartComponent } from './cart/cart.component';
+import { IndividualCartComponent } from './individual-cart/individual-cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,7 +27,7 @@ const routes: Routes = [
       },
       {
         path:'cart',
-        component:CartComponent
+        component:CartComponent,
       },
       { path: '', redirectTo: 'restaurant-list', pathMatch: 'full' },
     ],

@@ -14,7 +14,9 @@ address:string='';
 addressType:string='home';
 userName:string='';
 contactNo:string='';
-
+deliveryType:string='';
+deliveryInst:string='';
+paymentType:string='';
   constructor() { }
 saveOrderDetails(restName:any,restLocation:any,cartNo:any,totalPrice:any){
 this.restName=restName;

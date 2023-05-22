@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiResponse, RestaurantMenu } from 'src/app/models/restaurant-list';
 import { CartDetailsService } from 'src/app/services/cart-details.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -18,8 +19,9 @@ export class MyOrdersComponent implements OnInit {
   restName:any;
   restLocation:any;
   totalCost=0;
-  constructor(private cartDetails: CartDetailsService, private cartService: CartService,private orderDetails:OrderDetailsService) { }
+  constructor(private cartDetails: CartDetailsService, private cartService: CartService,private orderDetails:OrderDetailsService,private router:Router) { }
   restId: any;
+  isCheckOut=false;
 
   ngOnInit(): void {
     this.restId = Number(sessionStorage.getItem('restId'));
@@ -28,9 +30,9 @@ export class MyOrdersComponent implements OnInit {
       next: (res: any) => {
         console.log(res);
         this.cartArray = res["menu"]["data"];
-        this.cartNumber=res['menu']['cartId'];
-        this.restName=res['menu']['restaurant']['name'];
-        this.restLocation=res['menu']['restaurant']['address'];
+        // this.cartNumber=res['menu']['cartId'];
+        // this.restName=res['menu']['restaurant']['name'];
+        // this.restLocation=res['menu']['restaurant']['address'];
         this.isLoading = false;
         if (this.cartArray.length == 0) {
           this.isCartEmpty = true;
@@ -152,6 +154,8 @@ this.totalCost=this.totalCost+(element['quantity']*element['menuItem']['price'])
     })
   }
   goToChooseAddress(){
-this.orderDetails.saveOrderDetails(this.restName,this.restLocation,this.cartNumber,this.totalCost);
+// this.orderDetails.saveOrderDetails(this.restName,this.restLocation,this.cartNumber,this.totalCost);
+this.isCheckOut=true;
+this.router.navigateByUrl('explore/cart')
   }
 }

@@ -19,6 +19,7 @@ export class ChooseAddressComponent implements OnInit{
   showAddress=false;
   address:any;
   addressType:any;
+  deliveryType='DELIVER_TO_ME';
   constructor(
     private fb: FormBuilder,
     private dialogRef:MatDialog,private orderDetails:OrderDetailsService
@@ -35,7 +36,7 @@ export class ChooseAddressComponent implements OnInit{
   createForm() {
     this.detailForm = this.fb.group({
       name:[null, Validators.required],
-     
+      cookingInstructions: [''],
       phone:['' ,[Validators.pattern("[0-9 ]{10}")]],
       
     });
@@ -43,11 +44,38 @@ export class ChooseAddressComponent implements OnInit{
   goToIndividualCart(){
 this.isBack=true;
   }
+
+  deliveryIn(e: any) {
+    
+    
+    const deliverInData = e.target.value;
+    if(deliverInData=='pickUp'){
+      
+      this.deliveryType='PICK_UP'
+    }
+    else{
+      this.deliveryType='DELIVER_TO_ME'
+    }
+
+  }
+
   choosePayment(){
    if(this.detailForm.valid){
-    this.orderDetails.userName=this.detailForm.get('name')!.value
-    this.orderDetails.contactNo=this.detailForm.get('phone')!.value
-    this.isNext=true
+    if(this.orderDetails.address!=''){
+      this.orderDetails.deliveryType=this.deliveryType;
+      this.orderDetails.deliveryInst=this.detailForm.get('cookingInstructions')?.value
+      this.orderDetails.userName=this.detailForm.get('name')!.value
+      this.orderDetails.contactNo=this.detailForm.get('phone')!.value
+      this.isNext=true
+      console.log(this.orderDetails.deliveryInst);
+
+       console.log(this.orderDetails.deliveryType);
+    }
+    else{
+      alert('Please choose the address')
+      this.dialogRef.open(AddressComponent)
+    }
+   
    }
 
   }
@@ -61,7 +89,5 @@ this.isBack=true;
     this.dialogRef.open(AddressComponent);
     this.showAddress=true
   }
-  deliveryIn(e: any) {
-    
-  }
+ 
 }

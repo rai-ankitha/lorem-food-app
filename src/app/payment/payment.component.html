@@ -1,4 +1,4 @@
-<div *ngIf="!isBack && !isNext" class="container">
+<div *ngIf="!isBack && !isNext&&!isSuccess" class="container">
   <div class="nav-link">
     <div class="navbar">
       <a routerLink="/home">
@@ -28,6 +28,7 @@
                 id="radio"
                 value="cash"
                 name="select"
+                (change)="deliveryIn($event)"
                 checked
               />
               <img class="payment-img" src="./assets/cart/icn_wallet.png" alt="">
@@ -38,6 +39,7 @@
                 type="radio"
                 id="radio"
                 value="credit"
+                (change)="deliveryIn($event)"
                 name="select"
             
               />
@@ -51,7 +53,7 @@
             <div class="form-group"><input class="form-control" type="text" value={{address|titlecase}}></div>
             <div id="horizontal-line"></div>
             <label id="form-label">Date & Time</label>
-            <div class="form-group"><input class="form-control" type="text" value={{mydate}}&nbsp;at{{time}}></div>
+            <div class="form-group"><input class="form-control" type="text" value={{mydate}}&nbsp;at&nbsp;{{time}}></div>
         </div>
         
         <div class="sub-text"> Items in your order from</div>
@@ -76,9 +78,12 @@
     </div>
   </div>
 </div>
-<div *ngIf="isBack && !isNext">
+<div *ngIf="isBack && !isNext&&!isSuccess">
   <app-choose-address></app-choose-address>
 </div>
-<div *ngIf="isNext">
+<div *ngIf="isNext&&!isSuccess">
   <app-choose-address></app-choose-address>
+</div>
+<div *ngIf="isSuccess">
+  <app-order-success [orderId]="orderId"></app-order-success>
 </div>

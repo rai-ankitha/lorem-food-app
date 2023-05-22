@@ -40,6 +40,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { AddressComponent } from './address/address.component';
 import { ChooseAddressComponent } from './choose-address/choose-address.component';
 import { PaymentComponent } from './payment/payment.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { PaymentComponent } from './payment/payment.component';
     AddressComponent,
     ChooseAddressComponent,
     PaymentComponent,
+    OrderSuccessComponent,
    
 
   ],

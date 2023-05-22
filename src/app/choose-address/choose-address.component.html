@@ -58,11 +58,11 @@
 
           <div class="choose-address">
             <div class="header">
-              <p class="Title">My Addresses ()</p>
+              <p class="Title">My Addresses</p>
               <button type="button" (click)="addAddress()">ADD NEW</button>
             </div>
 
-            <div class="display">
+            <!-- <div class="display">
               <div class="address-card">
                 <div class="head">
                   <p>{{addressType |titlecase}}</p>
@@ -81,7 +81,7 @@
                   <button type="button" class="delete" (click)="delAddress()">Delete</button>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="details">
@@ -141,7 +141,7 @@
               >Delivery instructions?</label
             >
             <input
-              name="cookingInstructions"
+              name="cookingInstructions" formControlName="cookingInstructions"
               type="text"
               placeholder="Mention it here..."
             />

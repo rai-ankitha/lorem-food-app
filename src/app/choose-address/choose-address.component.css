@@ -173,7 +173,9 @@ a {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   background-color: #ee9f17;
 }
-
+.details{
+  margin-top: 50px;
+}
 .address-card {
      /* border: 2px solid red; */
     height: 100px;
