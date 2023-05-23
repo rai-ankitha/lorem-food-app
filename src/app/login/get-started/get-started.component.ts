@@ -13,6 +13,7 @@ export class GetStartedComponent {
   loginForm!:FormGroup;
   hide=true;
   notFocused = false;
+  clicked=false;
   constructor(private router: Router,private fb: FormBuilder,private authService:AuthenticationService,private userService:UserService) {
     this.createForm();
   }
@@ -38,6 +39,9 @@ isLogin(){
   if(this.loginForm.valid){
     this.authService.postLoginDetails(this.loginForm.get('loginEmail')!.value,this.loginForm.get('loginPassword')!.value).subscribe({
       next: (data:any) =>{this.userService.saveUserDetails(data["userDetails"])
+      this.clicked=false;
+      console.log(this.clicked);
+      
       sessionStorage.setItem('token',data["jwtToken"])
       console.log(data["jwtToken"])
       alert(data["message"]);},

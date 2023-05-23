@@ -63,7 +63,9 @@
     letter-spacing: -0.24px;
     line-height: 19px;
     text-align: right;
-    
+    cursor: pointer;
+    border: none;
+    background: none;
 
    cursor: pointer;
    padding-bottom: 15px;

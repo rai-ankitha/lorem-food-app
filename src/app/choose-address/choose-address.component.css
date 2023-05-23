@@ -63,12 +63,12 @@ a {
  
 
 .delivery-image{
-    width: 85%;
+  
     display: flex;
-   margin-left: 20px;
-    position: relative;
+   /* margin-left: 20px; */
+    /* position: relative;
     top: 8px;
-    right: 15px;
+    right: 15px; */
 }
 .image-left img, .image-right img{
     height: 62px;
@@ -76,12 +76,27 @@ a {
     
    
 }
-.image-left ,.image-right{
-    margin-right: 20px;
+.image-left {
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+  display: flex;
+  margin-right: 20px;
+  text-align: center;
+  flex-direction: column;
+  width: fit-content;
+  padding: 5px;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+.image-right {
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+    text-align: center;
     display: flex;
     flex-direction: column;
     padding: 5px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 }
 .input{
     display: flex;
