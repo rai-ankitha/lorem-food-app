@@ -33,11 +33,11 @@
                             src="./assets/restaurant-details/restaurant-menu/Group_8.png" alt="non-veg">
                         <div id="item-name">{{data["menuItem"]["name"]}}</div>
                         <div class="add-remove-container">
-                            <div (click)="decrement(data,i)" class="minus">-</div>
+                            <button (click)="decrement(data,i)" class="minus">-</button>
 
                             <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/minus.png" alt="minus">  -->
                             <span style="color: #feb456;">{{data["quantity"]}}</span>
-                            <div (click)="increment(data['menuItem']['id'])" class="add">+</div>
+                            <button (click)="increment(data['menuItem']['id'])" class="add">+</button>
                             <!-- <img class="mat-remove" src="./assets/restaurant-details/restaurant-menu/my-orders/add.png" alt="add">  -->
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <div>Rs&nbsp;{{data["quantity"]*data["menuItem"]["price"]}}</div>
                     </div>
 
-                    <div (click)="removeItem(data['menuItem']['id'],i)" class="remove-icon">Remove</div>
+                    <button (click)="removeItem(data['menuItem']['id'],i)" class="remove-icon">Remove</button>
                 </div>
             </div>
 

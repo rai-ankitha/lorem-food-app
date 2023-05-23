@@ -51,7 +51,7 @@ this.isBack=true;
     const deliverInData = e.target.value;
     if(deliverInData=='pickUp'){
       
-      this.deliveryType='PICK_UP'
+      this.deliveryType='PICKUP'
     }
     else{
       this.deliveryType='DELIVER_TO_ME'

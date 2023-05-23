@@ -100,12 +100,16 @@ a {
     border-radius: 20px;
   }
   .minus{
+    border: none;
+    background: none;
     text-align: start;
   margin-left: 10px;
   margin-right: 20px;
   cursor: pointer;
   }
   .add{
+    border: none;
+    background: none;
     text-align: end;
     margin-left: 20px;
      margin-right: 10px; 
@@ -114,6 +118,8 @@ a {
   }
   
   .remove-icon {
+    border: none;
+    background: none;
     margin-top: 10px;
     align-self: flex-end;
     cursor: pointer;

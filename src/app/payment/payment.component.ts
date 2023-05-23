@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderDetailsService } from '../services/order-details.service';
 import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-payment',
@@ -21,7 +22,7 @@ export class PaymentComponent implements OnInit {
   paymentType = 'cash';
   orderId:any;
   isSuccess=false;
-  constructor(private orderDetails: OrderDetailsService, private cartService: CartService,private router:Router) {
+  constructor(private orderDetails: OrderDetailsService, private cartService: CartService,private router:Router,private datePipe: DatePipe) {
 
   }
   ngOnInit(): void {
@@ -31,7 +32,8 @@ export class PaymentComponent implements OnInit {
     this.city = JSON.parse(sessionStorage.getItem('searchedLocation') as any);
     this.restName = this.orderDetails.restName;
     this.restLocation = this.orderDetails.restLocation;
-    this.mydate = JSON.parse(sessionStorage.getItem('date') as any);
+    const dateFormat = JSON.parse(sessionStorage.getItem('date') as any);
+    this.mydate= this.datePipe.transform(dateFormat, 'd MMM , yyyy');
     this.time = JSON.parse(sessionStorage.getItem('time') as any);
     this.address = this.orderDetails.address
     console.log(this.restName);
