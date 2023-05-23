@@ -4,7 +4,10 @@
 } */
 .container {
     background-color: rgb(241, 243, 251);
-    
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* navigation */
@@ -193,8 +196,9 @@ a {
     box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
   }
   .content-empty{
+    
     margin: auto;
     width: 50%; 
-    text-align: center;
-    height: 80%;
+    background-color: white;
+   flex-grow: 1;
   }
