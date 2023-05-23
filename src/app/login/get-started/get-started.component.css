@@ -66,6 +66,9 @@
       background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
       box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
     }
+    .btn-danger{
+      background-color: aliceblue;
+    }
     .span-text {
       color: #f67e03;
       font-weight: bold;
@@ -86,7 +89,7 @@
     .btn {
       padding: 15px;
     
-      font-family: "Open Sans";
+      
       font-size: 16px;
       font-weight: 600;
       width: 50%;

@@ -37,9 +37,10 @@ forgotPassword(){
 isSubmit=false;
 isLogin(){
   if(this.loginForm.valid){
+    this.clicked=false;
     this.authService.postLoginDetails(this.loginForm.get('loginEmail')!.value,this.loginForm.get('loginPassword')!.value).subscribe({
       next: (data:any) =>{this.userService.saveUserDetails(data["userDetails"])
-      this.clicked=false;
+      this.clicked=true;
       console.log(this.clicked);
       
       sessionStorage.setItem('token',data["jwtToken"])
