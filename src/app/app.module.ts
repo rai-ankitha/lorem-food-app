@@ -42,6 +42,8 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
 import { PaymentComponent } from './payment/payment.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +75,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     PaymentComponent,
     OrderSuccessComponent,
     NotFoundComponent,
+  
    
 
   ],
@@ -90,6 +93,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserAnimationsModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

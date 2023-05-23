@@ -7,3 +7,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-family: 'Bebas Neue';
     src: url('src/assets/fonts/BebasNeue-Regular.ttf');
   }
+  .progress-indicator{
+    display: block;
+  
+    position: fixed;
+    z-index: 1031; /* High z-index so it is on top of the page */
+    top: 50%;
+    right: 50%; /* or: left: 50%; */
+   
+  }
+
+  /* .container-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke:#feb456;
+} */

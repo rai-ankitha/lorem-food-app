@@ -66,6 +66,12 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="isLoading" class="
+progress-indicator">
+  <mat-progress-spinner color=warn mode="indeterminate">
+  </mat-progress-spinner>
+</div>
 <div *ngIf="isBack&&!isNext">
     <app-cart></app-cart>
 </div>

@@ -47,7 +47,10 @@
      <app-restaurant-menu [restMenuList]="restMenu"></app-restaurant-menu>
     </div>
    
-  
-   
   </div>
   
+  <div *ngIf="isLoading" class="
+progress-indicator">
+  <mat-progress-spinner color=warn mode="indeterminate">
+  </mat-progress-spinner>
+</div>

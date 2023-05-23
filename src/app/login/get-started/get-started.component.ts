@@ -36,21 +36,24 @@ forgotPassword(){
 }
 isSubmit=false;
 isLogin(){
+ 
   if(this.loginForm.valid){
-    this.clicked=false;
+    this.clicked=true;
     this.authService.postLoginDetails(this.loginForm.get('loginEmail')!.value,this.loginForm.get('loginPassword')!.value).subscribe({
       next: (data:any) =>{this.userService.saveUserDetails(data["userDetails"])
-      this.clicked=true;
+     
       console.log(this.clicked);
       
       sessionStorage.setItem('token',data["jwtToken"])
       console.log(data["jwtToken"])
-      alert(data["message"]);},
+      alert(data["message"]);
+     
+    },
       
       error: (e) => alert(e.error.message),
       complete: () => {
         sessionStorage.setItem('email', JSON.stringify(this.loginForm.get('loginEmail')?.value)as any );
-       
+        this.clicked=false;
     console.log("login submitted!!")
     this.isSubmit=true;
       }

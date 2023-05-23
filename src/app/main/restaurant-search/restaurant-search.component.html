@@ -1,11 +1,15 @@
 <div *ngIf="!isLoading" class="container">
   <div class="nav-link">
     <div class="navbar">
-      <a routerLink="/home"><div class="list-items">Home</div></a>
+      <a routerLink="/home">
+        <div class="list-items">Home</div>
+      </a>
       <div class="list-items"><span style="color: orange;">></span></div>
       <div class="list-items">{{city |titlecase}}</div>
       <div class="list-items"><span style="color: orange;">></span></div>
-      <a routerLink="/explore"><div class="list-items">Explore</div></a>
+      <a routerLink="/explore">
+        <div class="list-items">Explore</div>
+      </a>
       <div class="list-items"><span style="color: orange;">></span></div>
       <div class="list-items">{{foodType|titlecase}}</div>
     </div>
@@ -33,8 +37,7 @@
         </div>
         <form [formGroup]="radioOpenForm">
           <div class="filter-sub-text">Show restaurant with</div>
-          <label class="form-control"
-            ><input type="radio" value="open" formControlName="openNow" />
+          <label class="form-control"><input type="radio" value="open" formControlName="openNow" />
             <span>Open Now</span>
           </label>
           <div class="filter-sub-text">Delivery in</div>
@@ -52,12 +55,7 @@
           </div>
           <div class="filter-sub-text">Average Meal cost</div>
           <div class="form-control">
-            <input
-              type="radio"
-              value="30AED"
-              formControlName="maxCost"
-              checked
-            />
+            <input type="radio" value="30AED" formControlName="maxCost" checked />
             <span>Upto 30 AED</span>
           </div>
           <div class="form-control">
@@ -71,12 +69,7 @@
 
           <div class="filter-sub-text">Minimum order</div>
           <div class="form-control">
-            <input
-              type="radio"
-              value="30AED"
-              formControlName="minCost"
-              checked
-            />
+            <input type="radio" value="30AED" formControlName="minCost" checked />
             <span>Upto 60 AED</span>
           </div>
 
@@ -94,38 +87,45 @@
         <div id="btn-class"><button class="btn-apply">APPLY</button></div>
 
       </div>
-<!-- Restaurant list -->
-      <div class="restaurant-list" >
-        <div  class="restaurant-card" *ngFor="let item of restList">
-            <img class="food-img" src="{{item.image}}" alt="food" />
-            <div class="restaurant-details">
-              <div class="title-rating">
-                  <div id="restaurant-title">{{item.name}}</div>
-                  <div class="rating-box">{{item.rating}}</div>
-                </div>
-                <div class="location-text">{{item.address}}</div>
-                <div class="rest-card-line"></div>
-                <div class="title-rating">
-                  <div class="cost-and-status">
-                      <div class="location-text">{{item.food_types}}</div>
-                      <div class="location-text">{{item.status}}</div>
-                      <div id="cost-details">
-                          
-                              <div>•&nbsp;{{item.deliveryTimeInMins}} mins&nbsp;</div>
-                              <div>•&nbsp;Rs{{item.min_order_cost}} min order&nbsp;</div>
-                              <div>•&nbsp;Rs{{item.avg_meal_cost}} avg meal cost</div>
-                  
-                      </div>
-                      
-                  </div>
-                  <div id="menu-icon"><img id="menu-img" (click)="goToRestaurant(item.id)"  src="./assets/search/menu.png" alt="menu"></div>
-                </div>
-              
+      <!-- Restaurant list -->
+      <div class="restaurant-list">
+        <div class="restaurant-card" *ngFor="let item of restList">
+          <img class="food-img" src="{{item.image}}" alt="food" />
+          <div class="restaurant-details">
+            <div class="title-rating">
+              <div id="restaurant-title">{{item.name}}</div>
+              <div class="rating-box">{{item.rating}}</div>
             </div>
-           
-  
+            <div class="location-text">{{item.address}}</div>
+            <div class="rest-card-line"></div>
+            <div class="title-rating">
+              <div class="cost-and-status">
+                <div class="location-text">{{item.food_types}}</div>
+                <div class="location-text">{{item.status}}</div>
+                <div id="cost-details">
+
+                  <div>•&nbsp;{{item.deliveryTimeInMins}} mins&nbsp;</div>
+                  <div>•&nbsp;Rs{{item.min_order_cost}} min order&nbsp;</div>
+                  <div>•&nbsp;Rs{{item.avg_meal_cost}} avg meal cost</div>
+
+                </div>
+
+              </div>
+              <div id="menu-icon"><img id="menu-img" (click)="goToRestaurant(item.id)" src="./assets/search/menu.png"
+                  alt="menu"></div>
+            </div>
+
           </div>
+
+
+        </div>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="isLoading" class="
+progress-indicator">
+  <mat-progress-spinner color=warn mode="indeterminate">
+  </mat-progress-spinner>
 </div>

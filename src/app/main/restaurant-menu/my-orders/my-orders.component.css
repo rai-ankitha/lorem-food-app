@@ -147,6 +147,10 @@ input::placeholder {
     box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
 }
 .cart-empty{
-  margin: 100px;
+  margin: 100px auto;
+  /* margin: 20px 20px 0px 20px; */
+  width: 100%;
+
   text-align: center;
+ 
 }

@@ -73,7 +73,7 @@
      
       <div class="btn-flex">
         <button (click)="goToChooseAddress()" class="back-btn">back</button>
-        <button (click)="payNow()" class="address-btn">pay now</button>
+        <button (click)="payNow()" [disabled]="clicked" [ngClass]="!clicked?'address-btn':'btn-danger'">pay now</button>
       </div>
     </div>
   </div>

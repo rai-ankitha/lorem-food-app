@@ -36,6 +36,11 @@
     
 
 </div>
+<div *ngIf="isLoading&&!isIndividualCart" class="
+progress-indicator">
+  <mat-progress-spinner color=warn mode="indeterminate">
+  </mat-progress-spinner>
+</div>
 <div *ngIf="isIndividualCart">
     <app-individual-cart></app-individual-cart>
 </div>
