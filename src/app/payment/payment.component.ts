@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderDetailsService } from '../services/order-details.service';
 import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -20,7 +21,7 @@ export class PaymentComponent implements OnInit {
   paymentType = 'cash';
   orderId:any;
   isSuccess=false;
-  constructor(private orderDetails: OrderDetailsService, private cartService: CartService) {
+  constructor(private orderDetails: OrderDetailsService, private cartService: CartService,private router:Router) {
 
   }
   ngOnInit(): void {
@@ -53,7 +54,8 @@ export class PaymentComponent implements OnInit {
         
         this.orderId=res['orderId']
         console.log(this.orderId)
-        this.isSuccess=true;
+        // this.isSuccess=true
+        this.router.navigate(['explore/order', this.orderId]);
       },
       complete(){
 

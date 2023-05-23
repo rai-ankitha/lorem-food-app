@@ -9,14 +9,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ScheduleComponent implements OnInit {
   todayDate:any;
-  time:any;
+  mytime:any;
   constructor(private fb:FormBuilder, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.todayDate=this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     var today = new Date();
     let twentyMinutesLater = new Date(today.getTime() + (30*60*1000))
-    this.time = twentyMinutesLater.getHours() + ":" + twentyMinutesLater.getMinutes() ;
+    this.mytime = twentyMinutesLater.getHours() + ":" + twentyMinutesLater.getMinutes() ;
 
   }
 

@@ -1,1 +1,36 @@
-<p>order-success works!{{orderId}}</p>
+<div class="container">
+  <div class="nav-link">
+    <div class="navbar">
+      <a routerLink="/home">
+        <div class="list-items">Home</div>
+      </a>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <div class="list-items">{{ city | titlecase }}</div>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <a routerLink="/explore">
+        <div class="list-items">Explore</div>
+      </a>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <div class="list-items">{{ foodType | titlecase }}</div>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <a routerLink="/explore/cart"><div class="list-items">My Cart</div></a>
+      <div class="list-items"><span style="color: orange">></span></div>
+      <div class="list-items">Order Status</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-heading">Order id:&nbsp;{{ orderId }}</div>
+    <div class="order-card">
+      <img id="img" src="./assets/cart/order_status.png" alt="order" />
+      <div id="view-text">View Info</div>
+      <div class="order-flex">
+        <img src="./assets/cart/check_green.png" alt="green-check" />
+        <div id="horizontal-line"></div>
+        <img src="./assets/cart/grey_time_icon_status.png" alt="grey" />
+        <div id="horizontal-line"></div>
+        <img src="./assets/cart/grey_time_icon_status.png" alt="grey" />
+      </div>
+      <div id="success-text">Order Placed Successfully</div>
+    </div>
+  </div>
+</div>

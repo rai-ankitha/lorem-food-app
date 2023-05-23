@@ -7,6 +7,8 @@ import { RestaurantMenuComponent } from './main/restaurant-menu/restaurant-menu.
 import { RestaurantDetailsComponent } from './main/restaurant-details/restaurant-details.component';
 import { CartComponent } from './cart/cart.component';
 import { IndividualCartComponent } from './individual-cart/individual-cart.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,11 +30,17 @@ const routes: Routes = [
       {
         path:'cart',
         component:CartComponent,
+    
+      },
+      {
+        path:'order/:orderId',
+        component:OrderSuccessComponent,
       },
       { path: '', redirectTo: 'restaurant-list', pathMatch: 'full' },
+      
     ],
   },
-  
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

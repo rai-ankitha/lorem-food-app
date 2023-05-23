@@ -41,6 +41,7 @@ import { AddressComponent } from './address/address.component';
 import { ChooseAddressComponent } from './choose-address/choose-address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
     ChooseAddressComponent,
     PaymentComponent,
     OrderSuccessComponent,
+    NotFoundComponent,
    
 
   ],
