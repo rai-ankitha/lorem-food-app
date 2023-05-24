@@ -4,36 +4,43 @@
   </div>
 
   <div class="location-box">
-    <img class="icn-pin-img"
-      src="./assets/home/icn_pin.png"
-      alt="pin"
-      style="cursor: pointer"
-    />
-    <input class="location-box-input" type="text" value={{location}} [readonly]="true"/>
-    <img class="location-img"
-      src="./assets/home/icn_gps_indicator.png"
-      alt="geolocator"
-      style="cursor: pointer"
-    />
+    <img class="icn-pin-img" src="./assets/home/icn_pin.png" alt="pin" style="cursor: pointer" />
+    <input class="location-box-input" type="text" value={{location}} [readonly]="true" />
+    <img class="location-img" src="./assets/home/icn_gps_indicator.png" alt="geolocator" style="cursor: pointer" />
   </div>
 
   <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
     <label id="form-label">City</label>
     <div class="form-group"><input class="form-control" type="text" formControlName="city"></div>
-
-    <div class="error-text" *ngIf="addressForm.get('city')?.errors?.['pattern'] ">City cannot be in numbers
+    <div *ngIf="
+    addressForm.controls['city'].invalid &&
+    (addressForm.controls['city'].dirty ||
+    addressForm.controls['city'].touched)
+  " class="alert">
+      <div class="error-text" *ngIf="addressForm.get('city')?.errors?.['pattern'] ">City cannot be in numbers
+      </div>
     </div>
 
     <label id="form-label">Area</label>
     <div class="form-group"><input class="form-control" type="text" formControlName="area"></div>
-
-    <div class="error-text" *ngIf="addressForm.get('area')?.errors?.['pattern'] ">Area cannot be in numbers
+    <div *ngIf="
+    addressForm.controls['area'].invalid &&
+    (addressForm.controls['area'].dirty ||
+    addressForm.controls['area'].touched)
+  " class="alert">
+      <div class="error-text" *ngIf="addressForm.get('area')?.errors?.['pattern'] ">Area cannot be in numbers
+      </div>
     </div>
 
     <label id="form-label">Address</label>
     <div class="form-group"><input class="form-control" type="text" formControlName="address"></div>
-
-    <div class="error-text" *ngIf="addressForm.get('address')?.errors?.['pattern'] ">Address cannot be in numbers
+    <div *ngIf="
+    addressForm.controls['address'].invalid &&
+    (addressForm.controls['address'].dirty ||
+    addressForm.controls['address'].touched)
+  " class="alert">
+      <div class="error-text" *ngIf="addressForm.get('address')?.errors?.['pattern'] ">Address cannot be in numbers
+      </div>
     </div>
 
 

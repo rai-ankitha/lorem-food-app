@@ -1,4 +1,4 @@
-<div *ngIf="!isBack&&!isNext" class="container">
+<div *ngIf="!isBack && !isNext" class="container">
   <div class="nav-link">
     <div class="navbar">
       <a routerLink="/home">
@@ -27,29 +27,17 @@
           <div class="delivery-image">
             <div class="image-left">
               <img src="./assets/cart/deliver_icon.png" />
-              <div class="input">
-                <input
-                  type="radio"
-                  id="radio"
-                  value="homeDelivery"
-                  name="select"
-                  (change)="deliveryIn($event)"
-                  checked
-                />
+              <div class="radio-input">
+                <input type="radio" id="radio-btn" value="homeDelivery" name="select" (change)="deliveryIn($event)"
+                  checked />
                 <label for="radio">Deliver to me</label>
               </div>
             </div>
 
             <div class="image-right">
               <img src="./assets/cart/pick_up_icon.png" />
-              <div class="input">
-                <input
-                  type="radio"
-                  id="radio2"
-                  value="pickUp"
-                  name="select"
-                  (change)="deliveryIn($event)"
-                />
+              <div class="radio-input">
+                <input type="radio" id="radio-btn" value="pickUp" name="select" (change)="deliveryIn($event)" />
                 <label for="radio">Pick up</label>
               </div>
             </div>
@@ -90,61 +78,41 @@
 
           <label id="form-label">Name</label>
           <div class="form-group">
-            <input
-              class="form-control"
-              type="text"
-              formControlName="name"
-              (focus)="notFocused = false"
-              (focusout)="notFocused = true"
-            />
+            <input class="form-control" type="text" formControlName="name" (focus)="notFocused = false"
+              (focusout)="notFocused = true" />
           </div>
-          <div
-            *ngIf="
+          <div *ngIf="
               detailForm.controls['name'].invalid &&
               (detailForm.controls['name'].dirty ||
                 detailForm.controls['name'].touched)
-            "
-            class="alert"
-          >
-            <div
-              class="error-text"
-              *ngIf="
+            " class="alert">
+            <div class="error-text" *ngIf="
                 detailForm.controls['name'].errors!['required'] && notFocused
-              "
-            >
+              ">
               Please enter Name
             </div>
           </div>
           <label id="form-label">Mobile No.</label>
           <div class="form-group">
-            <input
-              class="form-control"
-              type="text"
-              inputmode="numeric"
-              formControlName="phone"
-              (focus)="notFocused = false"
-              (focusout)="notFocused = true"
-            />
+            <input class="form-control" type="text" inputmode="numeric" formControlName="phone"
+              (focus)="notFocused = false" (focusout)="notFocused = true" />
           </div>
-          <div *ngIf="detailForm.controls['phone'].invalid" class="alert">
-            <div
-              class="error-text"
-              *ngIf="
+
+          <div *ngIf="
+              detailForm.controls['phone'].invalid &&
+              (detailForm.controls['phone'].dirty ||
+                detailForm.controls['phone'].touched)
+            " class="alert">
+            <div class="error-text" *ngIf="
                 detailForm.controls['phone'].errors!['pattern'] && notFocused
-              "
-            >
+              ">
               Enter a valid Mobile Number
             </div>
           </div>
           <div class="comments">
-            <label id="cooking-title" for="cookingInstructions"
-              >Delivery instructions?</label
-            >
-            <input
-              name="cookingInstructions" formControlName="cookingInstructions"
-              type="text"
-              placeholder="Mention it here..."
-            />
+            <label id="cooking-title" for="cookingInstructions">Delivery instructions?</label>
+            <input name="cookingInstructions" formControlName="cookingInstructions" type="text"
+              placeholder="Mention it here..." />
           </div>
           <div class="btn-flex">
             <button type="button" (click)="goToIndividualCart()" class="back-btn">
@@ -159,9 +127,9 @@
     </div>
   </div>
 </div>
-<div *ngIf="isBack&&!isNext">
-    <app-individual-cart></app-individual-cart>
+<div *ngIf="isBack && !isNext">
+  <app-individual-cart></app-individual-cart>
 </div>
 <div *ngIf="isNext">
-    <app-payment></app-payment>
+  <app-payment></app-payment>
 </div>

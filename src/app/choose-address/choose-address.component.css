@@ -60,68 +60,50 @@ a {
     font-size: 14px;
     letter-spacing: -0.24px;
 }
- 
-
 .delivery-image{
+ 
+  display: flex;
   
-    display: flex;
-   /* margin-left: 20px; */
-    /* position: relative;
-    top: 8px;
-    right: 15px; */
+ 
 }
 .image-left img, .image-right img{
-    height: 62px;
-    width: 97px;
-    
-   
+  height: 62px;
+  width: 97px;
+ 
 }
-.image-left {
-  border-radius: 6px;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+.image-left ,.image-right{
+  height: 115px;
+  width: 162px;
   display: flex;
-  margin-right: 20px;
-  text-align: center;
   flex-direction: column;
-  width: fit-content;
-  padding: 5px;
-  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-right: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.image-right {
-  border-radius: 6px;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+.radio-input{
+  display: flex;
+  margin-top: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+  accent-color: black;
+  height: 30px;
+  align-items: center;
+  
+ 
 }
-.input{
-    display: flex;
-    margin-top: 6px;
-    justify-self: start;
-    /* margin-left: 10px; */
-    accent-color: black;
-    height: 30px;
-    align-items: center;
-    width: 100px;
-   
+#radio-btn{
+  cursor: pointer;
 }
-#radio,#radio2{
-  padding: 0;
+.radio-input label{
+  color: #4A4A4A;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 19px;
+  margin-left: 5px;
 }
 
-.input label, .Input label{
-    color: #4A4A4A;
-    font-family: "Open Sans";
-    font-size: 14px;
-    letter-spacing: -0.24px;
-    line-height: 19px;
-    /* margin-left: 5px; */
-    width: 100px;
-}
 .header{
     height: 30px;
     display: flex;
@@ -291,7 +273,7 @@ a {
   }
 
 
-  input {
+  .comments input {
     width: 100%;
     outline: 0;
     border-width: 0 0 2px;
@@ -300,7 +282,7 @@ a {
     padding-bottom:10px;
   
   }
-  input:focus {
+  .comments input:focus {
     outline: none
   }
   #cooking-title{
@@ -309,7 +291,7 @@ a {
     font-size: 12px;
     
   }
-  input::placeholder {
+  .comments input::placeholder {
     color: #4A4A4A;
     font-family: "Open Sans";
     font-size: 16px;
@@ -321,7 +303,6 @@ a {
     justify-content: flex-end;
     align-items: center;
     padding-bottom: 30px;
-    /* padding-top: 20px; */
     padding-right: 20px;
   }
   .back-btn{

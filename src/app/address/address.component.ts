@@ -25,11 +25,11 @@ export class AddressComponent implements OnInit {
       sessionStorage.getItem('searchedLocation') as any
     );
     this.addressForm = this.fb.group({
-      city: this.fb.control(null, [
+      city: this.fb.control('', [
         Validators.required,
         Validators.pattern(/^[A-Z a-z]+$/),
       ]),
-      area: this.fb.control(null, [
+      area: this.fb.control('', [
         Validators.required,
         Validators.pattern(/^[A-Z a-z]+$/),
       ]),

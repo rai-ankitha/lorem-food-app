@@ -154,3 +154,10 @@
     top: 10px;
     font-size: 13px;
 }
+.error-text{
+  color: #ED1B2E;
+font-family: "Open Sans";
+font-size: 12px;
+font-weight: 600;
+letter-spacing: -0.2px;
+}
