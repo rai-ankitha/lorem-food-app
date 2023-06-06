@@ -12,7 +12,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class RestaurantMenuComponent implements OnInit {
   @Input() restMenuList: any;
-  isLoading = true;
+  isLoading = false;
   isSearching = false;
   search: any;
   restId: any;
@@ -62,7 +62,7 @@ export class RestaurantMenuComponent implements OnInit {
           }
     
         }
-        this.isLoading = false;
+        // this.isLoading = false;
       },
       complete() {
         
@@ -99,7 +99,7 @@ export class RestaurantMenuComponent implements OnInit {
           }
     
         }
-        this.isLoading = false;
+        // this.isLoading = false;
       },
       complete() {
         

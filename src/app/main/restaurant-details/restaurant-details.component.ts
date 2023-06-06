@@ -12,7 +12,7 @@ export class RestaurantDetailsComponent implements OnInit {
   foodType: any;
   city: any;
   restId: any;
-  isLoading = true;
+  isLoading = false;
   restMenu!: RestaurantMenu
   constructor(
     private router: Router,
@@ -32,7 +32,7 @@ export class RestaurantDetailsComponent implements OnInit {
       next: (response) => {
 
 
-        this.isLoading = false;
+        // this.isLoading = false;
 
         this.details = response['menu']['restaurant']
 
